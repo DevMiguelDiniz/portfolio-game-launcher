@@ -1,30 +1,36 @@
 "use client"
 
-import { useState } from 'react'
-import Image from 'next/image'
-import { Search, Filter, Star } from 'lucide-react'
-import { Input } from '@/components/ui/input'
-import { projects } from '../data/projects'
+import { useState } from "react"
+import Image from "next/image"
+import { Search, Filter, Star } from "lucide-react"
+import { Input } from "@/components/ui/input"
+import { projects } from "../data/projects"
 
 interface SidebarProps {
   selectedProject: string | null
   setSelectedProject: (projectId: string | null) => void
+  onProjectSelect?: () => void
 }
 
-export default function Sidebar({ selectedProject, setSelectedProject }: SidebarProps) {
-  const [searchTerm, setSearchTerm] = useState('')
-  const [categoryFilter, setCategoryFilter] = useState('all')
+export default function Sidebar({ selectedProject, setSelectedProject, onProjectSelect }: SidebarProps) {
+  const [searchTerm, setSearchTerm] = useState("")
+  const [categoryFilter, setCategoryFilter] = useState("all")
 
-  const categories = ['all', 'web', 'mobile', 'fullstack', 'frontend']
+  const categories = ["all", "web", "mobile", "fullstack", "frontend"]
 
-  const filteredProjects = projects.filter(project => {
+  const filteredProjects = projects.filter((project) => {
     const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase())
-    const matchesCategory = categoryFilter === 'all' || project.category === categoryFilter
+    const matchesCategory = categoryFilter === "all" || project.category === categoryFilter
     return matchesSearch && matchesCategory
   })
 
+  const handleProjectSelect = (projectId: string) => {
+    setSelectedProject(projectId)
+    onProjectSelect?.()
+  }
+
   return (
-      <aside className="w-80 bg-gray-900 border-r border-gray-800 flex flex-col">
+      <aside className="w-80 sm:w-72 lg:w-80 bg-gray-900 border-r border-gray-800 flex flex-col h-full">
         {/* Header */}
         <div className="p-4 border-b border-gray-800">
           <h2 className="text-lg font-semibold text-white mb-4">Biblioteca</h2>
@@ -67,11 +73,9 @@ export default function Sidebar({ selectedProject, setSelectedProject }: Sidebar
             {filteredProjects.map((project) => (
                 <button
                     key={project.id}
-                    onClick={() => setSelectedProject(project.id)}
+                    onClick={() => handleProjectSelect(project.id)}
                     className={`w-full flex items-center space-x-3 p-3 rounded-lg mb-1 transition-all text-left group ${
-                        selectedProject === project.id
-                            ? 'bg-gray-800 border border-gray-700'
-                            : 'hover:bg-gray-800/50'
+                        selectedProject === project.id ? "bg-gray-800 border border-gray-700" : "hover:bg-gray-800/50"
                     }`}
                 >
                   {/* Project Thumbnail */}
@@ -91,26 +95,17 @@ export default function Sidebar({ selectedProject, setSelectedProject }: Sidebar
                       <h3 className="text-white font-medium text-sm truncate group-hover:text-blue-400 transition-colors">
                         {project.title}
                       </h3>
-                      {project.featured && (
-                          <Star className="w-3 h-3 text-blue-400 fill-current flex-shrink-0" />
-                      )}
+                      {project.featured && <Star className="w-3 h-3 text-blue-400 fill-current flex-shrink-0" />}
                     </div>
-                    <p className="text-gray-400 text-xs truncate capitalize">
-                      {project.category}
-                    </p>
+                    <p className="text-gray-400 text-xs truncate capitalize">{project.category}</p>
                     <div className="flex items-center space-x-1 mt-1">
                       {project.technologies.slice(0, 2).map((tech) => (
-                          <span
-                              key={tech}
-                              className="text-xs bg-gray-800 text-gray-300 px-1 py-0.5 rounded"
-                          >
+                          <span key={tech} className="text-xs bg-gray-800 text-gray-300 px-1 py-0.5 rounded">
                       {tech}
                     </span>
                       ))}
                       {project.technologies.length > 2 && (
-                          <span className="text-xs text-gray-500">
-                      +{project.technologies.length - 2}
-                    </span>
+                          <span className="text-xs text-gray-500">+{project.technologies.length - 2}</span>
                       )}
                     </div>
                   </div>
@@ -128,7 +123,7 @@ export default function Sidebar({ selectedProject, setSelectedProject }: Sidebar
             </div>
             <div className="flex justify-between">
               <span>Destaques:</span>
-              <span className="text-blue-400">{projects.filter(p => p.featured).length}</span>
+              <span className="text-blue-400">{projects.filter((p) => p.featured).length}</span>
             </div>
           </div>
         </div>

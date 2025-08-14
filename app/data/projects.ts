@@ -1,80 +1,74 @@
 export const projects = [
   {
     id: '1',
-    title: 'E-commerce Platform',
-    description: 'Plataforma completa de e-commerce com carrinho, pagamentos e dashboard administrativo.',
-    longDescription: 'Uma plataforma de e-commerce completa desenvolvida com Next.js e Node.js, incluindo sistema de autenticação, carrinho de compras, integração com gateway de pagamento, dashboard administrativo e muito mais. O projeto foi desenvolvido com foco na performance, segurança e experiência do usuário.',
-    image: '/placeholder.svg?height=400&width=600&text=E-commerce+Platform',
+    title: 'Gnosi',
+    description: 'Plataforma completa de cadastro e gestão de cursos online.',
+    longDescription: 'Gnosi é uma plataforma robusta para criação e gestão de cursos online, desenvolvida com React.js e SpringBoot. Oferece funcionalidades avançadas como autenticação segura, painel administrativo, e um sistema de avaliações.',
+    image: '/Gnosi.jpeg?height=400&width=600&text=Gnosi+Platform',
     category: 'fullstack',
-    technologies: ['Next.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'Stripe', 'Tailwind CSS', 'Prisma', 'NextAuth'],
-    githubUrl: 'https://github.com/usuario/ecommerce',
-    liveUrl: 'https://ecommerce-demo.vercel.app',
+    technologies: ['React.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'Springboot', 'Tailwind CSS', 'SpringSecurity', 'Java'],
+    githubUrl: 'https://github.com/DevMiguelDiniz/pmg-es-2024-2-ti2-3687100-gnosi',
+    liveUrl: '',
     featured: true,
-    date: 'Dezembro 2023',
+    date: 'Dezembro 2024',
     features: [
       'Sistema completo de autenticação e autorização',
-      'Carrinho de compras com persistência',
-      'Integração com Stripe para pagamentos',
       'Dashboard administrativo completo',
       'Sistema de avaliações e comentários',
       'Busca avançada com filtros',
-      'Gestão de estoque em tempo real',
-      'Notificações por email'
     ],
     challenges: [
-      'Implementação de sistema de pagamentos seguro com Stripe',
-      'Otimização de performance para grandes catálogos de produtos',
       'Criação de dashboard responsivo e intuitivo para administradores',
-      'Sincronização de estoque em tempo real'
     ]
   },
   {
     id: '2',
-    title: 'Task Management App',
-    description: 'Aplicativo de gerenciamento de tarefas com colaboração em tempo real.',
-    longDescription: 'Aplicativo de produtividade para gerenciamento de tarefas e projetos, com funcionalidades de colaboração em tempo real, notificações push e sincronização entre dispositivos.',
-    image: '/placeholder.svg?height=400&width=600&text=Task+Management+App',
-    category: 'web',
-    technologies: ['React', 'Firebase', 'Material-UI', 'PWA', 'WebSockets'],
-    githubUrl: 'https://github.com/usuario/task-manager',
-    liveUrl: 'https://task-manager-demo.vercel.app',
-    date: 'Novembro 2023',
+    title: 'Fabiana Moveis',
+    description: 'Aplicação para gerenciamento de rotas e entregas.',
+    longDescription: 'Fabiana Moveis é uma aplicação desenvolvida para otimizar o gerenciamento de rotas e entregas, utilizando tecnologias modernas como Next.js e Node.js. A plataforma permite que usuários gerenciem suas entregas de forma eficiente, com funcionalidades de rastreamento em tempo real e notificações.',
+    image: '/FabianaMoveis.jpeg?height=400&width=600&text=Chat+Application',
+    category: 'fullstack',
+    technologies: ['Next.js', 'Node.js', 'TypeScript', 'PostgreSQL', 'Tailwind CSS', 'Nest.JS'],
+    featured: true,
+    githubUrl: 'https://github.com/DevMiguelDiniz/pmg-es-2025-1-ti3-9577100-fabiana-moveis.git',
+    liveUrl: '',
+    date: 'Julho 2025',
     features: [
-      'Colaboração em tempo real entre equipes',
-      'Notificações push inteligentes',
-      'Modo offline com sincronização automática',
-      'Drag and drop para organização intuitiva',
-      'Relatórios de produtividade detalhados',
-      'Integração com calendários externos'
+      'Interface de usuário intuitiva e responsiva',
+      'Sistema de gerenciamento de rotas e entregas',
+      'Funcionalidade de rastreamento em tempo real',
+      'Sistema de notificações para atualizações de entrega',
+      'Painel administrativo para gerenciamento de usuários e entregas',
+      'Geração de rotas otimizadas com base em localização',
     ],
     challenges: [
-      'Sincronização de dados em tempo real entre múltiplos usuários',
-      'Implementação de modo offline robusto',
-      'Otimização de performance para grandes volumes de dados'
+      'Implementação de um sistema de rastreamento em tempo real eficiente',
+      'Gerenciamento de estado da aplicação sem bibliotecas externas',
+      'Criação de uma interface responsiva que funcione bem em dispositivos móveis'
     ]
   },
   {
     id: '3',
-    title: 'Weather App',
-    description: 'Aplicativo mobile de previsão do tempo com design moderno e animações.',
-    longDescription: 'Aplicativo mobile elegante para previsão do tempo, desenvolvido com React Native e Expo. Inclui animações fluidas, localização automática e interface intuitiva.',
-    image: '/placeholder.svg?height=400&width=600&text=Weather+App',
-    category: 'mobile',
-    technologies: ['React Native', 'Expo', 'OpenWeather API', 'Lottie', 'AsyncStorage'],
-    githubUrl: 'https://github.com/usuario/weather-app',
-    date: 'Outubro 2023',
+    title: 'Java Parks',
+    description: 'Aplicativo desktop em Java para gestão de estacionamento.',
+    longDescription: 'Aplicativo desktop desenvolvido em Java para gestão de estacionamento, com funcionalidades como controle de entradas e saídas, relatórios de uso e integração com banco de dados.',
+    image: '/XulambsPark.jpeg?height=400&width=600&text=Weather+App',
+    category: 'desktop',
+    technologies: ['Java', 'JavaFX', 'PostgreSQL'],
+    githubUrl: 'https://github.com/DevMiguelDiniz/turmamanha-g2-x-men-evolution',
+    date: 'Dezembro 2024',
     features: [
-      'Previsão do tempo em tempo real',
-      'Localização automática GPS',
-      'Animações fluidas com Lottie',
-      'Suporte a múltiplas cidades',
-      'Notificações de alertas meteorológicos',
-      'Interface adaptativa para diferentes climas'
+        'Interface gráfica intuitiva com JavaFX',
+        'Controle de entradas e saídas de veículos',
+        'Relatórios de uso e estatísticas',
+        'Integração com banco de dados PostgreSQL',
+        'Sistema de autenticação de usuários',
+        'Suporte a múltiplos idiomas'
     ],
     challenges: [
-      'Integração com APIs de geolocalização',
-      'Otimização de animações para performance mobile',
-      'Implementação de notificações push nativas'
+        'Desenvolvimento de uma interface gráfica responsiva e intuitiva',
+        'Gerenciamento eficiente de conexões com o banco de dados',
+        'Implementação de funcionalidades avançadas como relatórios e estatísticas'
     ]
   },
   {
@@ -87,7 +81,7 @@ export const projects = [
     technologies: ['Next.js', 'Framer Motion', 'Tailwind CSS', 'TypeScript', 'MDX'],
     githubUrl: 'https://github.com/usuario/portfolio',
     liveUrl: 'https://portfolio-demo.vercel.app',
-    date: 'Setembro 2023',
+    date: 'Agosto 2025',
     features: [
       'Design responsivo e moderno',
       'Animações suaves com Framer Motion',
@@ -99,47 +93,26 @@ export const projects = [
   },
   {
     id: '5',
-    title: 'Chat Application',
-    description: 'Aplicação de chat em tempo real com salas e mensagens privadas.',
-    longDescription: 'Aplicação de chat completa desenvolvida com Socket.io e React, incluindo salas públicas, mensagens privadas, compartilhamento de arquivos e sistema de moderação.',
-    image: '/placeholder.svg?height=400&width=600&text=Chat+Application',
+    title: 'CookConnect',
+    description: 'Aplicação frontend para compartilhamento de receitas culinárias.',
+    longDescription: 'CookConnect é uma aplicação frontend desenvolvida com HTML5, CSS e JavaScript puro, permitindo que usuários compartilhem e descubram receitas culinárias. A plataforma inclui funcionalidades de busca avançada, comentários e avaliações de receitas.',
+    image: '/CookConnect.png?height=400&width=600&text=Chat+Application',
     category: 'fullstack',
-    technologies: ['Socket.io', 'Node.js', 'React', 'MongoDB', 'JWT', 'Redis'],
-    githubUrl: 'https://github.com/usuario/chat-app',
-    liveUrl: 'https://chat-demo.vercel.app',
-    featured: true,
-    date: 'Agosto 2023',
+    technologies: ['HTML5', 'CSS', 'JavaScript'],
+    githubUrl: 'https://github.com/DevMiguelDiniz/pmg-es-2024-1-ti1-2010100-cook-connect',
+    liveUrl: '',
+    date: 'Julho 2024',
     features: [
-      'Chat em tempo real com Socket.io',
-      'Salas públicas e mensagens privadas',
-      'Compartilhamento de arquivos e imagens',
-      'Sistema de moderação avançado',
-      'Emojis e reações personalizadas',
-      'Histórico de mensagens persistente'
+        'Interface de usuário intuitiva e responsiva',
+        'Sistema de busca avançada por ingredientes e categorias',
+        'Funcionalidade de comentários e avaliações de receitas',
+        'Sistema de autenticação de usuários',
+        'Painel administrativo para moderação de conteúdo',
     ],
     challenges: [
-      'Escalabilidade para milhares de usuários simultâneos',
-      'Implementação de sistema de moderação em tempo real',
-      'Otimização de performance com Redis para cache'
-    ]
-  },
-  {
-    id: '6',
-    title: 'Fitness Tracker',
-    description: 'App mobile para acompanhamento de exercícios e metas fitness.',
-    longDescription: 'Aplicativo mobile completo para acompanhamento de atividades físicas, desenvolvido com Flutter. Inclui tracking de exercícios, metas personalizadas e gráficos de progresso.',
-    image: '/placeholder.svg?height=400&width=600&text=Fitness+Tracker',
-    category: 'mobile',
-    technologies: ['Flutter', 'Dart', 'SQLite', 'Charts', 'HealthKit', 'Google Fit'],
-    githubUrl: 'https://github.com/usuario/fitness-tracker',
-    date: 'Julho 2023',
-    features: [
-      'Tracking automático de exercícios',
-      'Metas personalizadas e gamificação',
-      'Gráficos detalhados de progresso',
-      'Integração com Apple Health e Google Fit',
-      'Planos de treino personalizados',
-      'Comunidade e desafios entre amigos'
+        'Implementação de um sistema de busca eficiente e rápido',
+        'Gerenciamento de estado da aplicação sem bibliotecas externas',
+        'Criação de uma interface responsiva que funcione bem em dispositivos móveis'
     ]
   }
 ]

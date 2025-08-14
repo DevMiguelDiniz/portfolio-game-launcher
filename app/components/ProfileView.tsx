@@ -1,8 +1,8 @@
 "use client"
 
-import Image from 'next/image'
-import { MapPin, Calendar, Mail, Phone, Download, Code, Database, Smartphone, Globe } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import Image from "next/image"
+import { MapPin, Calendar, Mail, Phone, Download, Code, Database, Smartphone, Globe } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 export default function ProfileView() {
   const skills = [
@@ -29,7 +29,7 @@ export default function ProfileView() {
       title: "DevOps & Cloud",
       description: "Docker, AWS, Vercel, CI/CD",
       level: 75,
-    }
+    },
   ]
 
   const experience = [
@@ -38,20 +38,20 @@ export default function ProfileView() {
       company: "Tech Company",
       period: "2022 - Presente",
       description: "Desenvolvimento de aplicações web e mobile usando React, Node.js e cloud services.",
-      current: true
+      current: true,
     },
     {
       title: "Frontend Developer",
       company: "Startup Inc",
       period: "2020 - 2022",
-      description: "Criação de interfaces modernas e responsivas com foco na experiência do usuário."
+      description: "Criação de interfaces modernas e responsivas com foco na experiência do usuário.",
     },
     {
       title: "Junior Developer",
       company: "Dev Agency",
       period: "2019 - 2020",
-      description: "Desenvolvimento de websites e aplicações web para diversos clientes."
-    }
+      description: "Desenvolvimento de websites e aplicações web para diversos clientes.",
+    },
   ]
 
   return (
@@ -95,7 +95,7 @@ export default function ProfileView() {
                     <Download className="w-4 h-4 mr-2" />
                     Download CV
                   </Button>
-                  <Button variant="outline" className="border-gray-600 text-gray-300 hover:bg-gray-800">
+                  <Button variant="outline" className="border-gray-600 text-gray-300 hover:bg-gray-800 bg-transparent">
                     <Mail className="w-4 h-4 mr-2" />
                     Entrar em contato
                   </Button>
@@ -113,18 +113,18 @@ export default function ProfileView() {
               <h2 className="text-3xl font-bold text-white mb-6">Sobre mim</h2>
               <div className="bg-gray-900 rounded-lg p-6 border border-gray-800">
                 <p className="text-gray-300 text-lg leading-relaxed mb-4">
-                  Sou um desenvolvedor full stack apaixonado por criar soluções inovadoras e experiências
-                  digitais excepcionais. Com mais de 5 anos de experiência, tenho trabalhado em projetos
-                  diversos, desde startups até grandes empresas.
+                  Sou um desenvolvedor full stack apaixonado por criar soluções inovadoras e experiências digitais
+                  excepcionais. Com mais de 5 anos de experiência, tenho trabalhado em projetos diversos, desde startups
+                  até grandes empresas.
                 </p>
                 <p className="text-gray-300 text-lg leading-relaxed mb-4">
-                  Minha expertise inclui desenvolvimento frontend com React e Next.js, backend com Node.js
-                  e Python, além de experiência em desenvolvimento mobile e DevOps. Sempre busco aprender
-                  novas tecnologias e aplicar as melhores práticas em meus projetos.
+                  Minha expertise inclui desenvolvimento frontend com React e Next.js, backend com Node.js e Python, além
+                  de experiência em desenvolvimento mobile e DevOps. Sempre busco aprender novas tecnologias e aplicar as
+                  melhores práticas em meus projetos.
                 </p>
                 <p className="text-gray-300 text-lg leading-relaxed">
-                  Quando não estou codando, gosto de contribuir para projetos open source, escrever artigos
-                  técnicos e participar de eventos da comunidade de desenvolvedores.
+                  Quando não estou codando, gosto de contribuir para projetos open source, escrever artigos técnicos e
+                  participar de eventos da comunidade de desenvolvedores.
                 </p>
               </div>
             </section>
@@ -154,10 +154,7 @@ export default function ProfileView() {
                           <span className="text-white">{skill.level}%</span>
                         </div>
                         <div className="w-full bg-gray-800 rounded-full h-2">
-                          <div
-                              className="h-2 rounded-full bg-blue-600"
-                              style={{ width: `${skill.level}%` }}
-                          ></div>
+                          <div className="h-2 rounded-full bg-blue-600" style={{ width: `${skill.level}%` }}></div>
                         </div>
                       </div>
                     </div>
@@ -174,8 +171,8 @@ export default function ProfileView() {
                         key={index}
                         className={`rounded-lg p-6 border transition-colors ${
                             exp.current
-                                ? 'bg-blue-600/10 border-blue-600/30'
-                                : 'bg-gray-900 border-gray-800 hover:border-gray-700'
+                                ? "bg-blue-600/10 border-blue-600/30"
+                                : "bg-gray-900 border-gray-800 hover:border-gray-700"
                         }`}
                     >
                       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
@@ -185,11 +182,7 @@ export default function ProfileView() {
                         </div>
                         <div className="flex items-center space-x-2 mt-2 md:mt-0">
                           <span className="text-gray-400 text-sm">{exp.period}</span>
-                          {exp.current && (
-                              <span className="px-2 py-1 bg-blue-600 text-white text-xs rounded">
-                          Atual
-                        </span>
-                          )}
+                          {exp.current && <span className="px-2 py-1 bg-blue-600 text-white text-xs rounded">Atual</span>}
                         </div>
                       </div>
                       <p className="text-gray-300">{exp.description}</p>

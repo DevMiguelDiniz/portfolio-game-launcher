@@ -34,23 +34,11 @@ export default function ProfileView() {
 
   const experience = [
     {
-      title: "Senior Full Stack Developer",
-      company: "Tech Company",
-      period: "2022 - Presente",
-      description: "Desenvolvimento de aplicações web e mobile usando React, Node.js e cloud services.",
+      title: "Estágio em Desenvolvimento Full Stack",
+      company: "JdsDev",
+      period: "2025 - Presente",
+      description: "Desenvolvimento de aplicações web e mobile usando React, Next, SpringBoot, e cloud services.",
       current: true,
-    },
-    {
-      title: "Frontend Developer",
-      company: "Startup Inc",
-      period: "2020 - 2022",
-      description: "Criação de interfaces modernas e responsivas com foco na experiência do usuário.",
-    },
-    {
-      title: "Junior Developer",
-      company: "Dev Agency",
-      period: "2019 - 2020",
-      description: "Desenvolvimento de websites e aplicações web para diversos clientes.",
     },
   ]
 
@@ -76,17 +64,17 @@ export default function ProfileView() {
 
               {/* Profile Info */}
               <div className="text-center md:text-left flex-1">
-                <h1 className="text-4xl font-bold text-white mb-2">Seu Nome</h1>
+                <h1 className="text-4xl font-bold text-white mb-2">Miguel Diniz</h1>
                 <p className="text-blue-400 text-xl mb-4">Desenvolvedor Full Stack</p>
 
                 <div className="flex flex-wrap justify-center md:justify-start gap-4 text-gray-400 mb-6">
                   <div className="flex items-center space-x-2">
                     <MapPin className="w-4 h-4" />
-                    <span>São Paulo, Brasil</span>
+                    <span>Minas Gerais, Brasil</span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <Calendar className="w-4 h-4" />
-                    <span>5+ anos de experiência</span>
+                    <span>2 anos de experiência</span>
                   </div>
                 </div>
 
@@ -113,18 +101,15 @@ export default function ProfileView() {
               <h2 className="text-3xl font-bold text-white mb-6">Sobre mim</h2>
               <div className="bg-gray-900 rounded-lg p-6 border border-gray-800">
                 <p className="text-gray-300 text-lg leading-relaxed mb-4">
-                  Sou um desenvolvedor full stack apaixonado por criar soluções inovadoras e experiências digitais
-                  excepcionais. Com mais de 5 anos de experiência, tenho trabalhado em projetos diversos, desde startups
-                  até grandes empresas.
+                  Desenvolvedor Full Stack, estudante de Engenharia de Software na PUC Minas, com 2 anos de experiência na área.
                 </p>
                 <p className="text-gray-300 text-lg leading-relaxed mb-4">
-                  Minha expertise inclui desenvolvimento frontend com React e Next.js, backend com Node.js e Python, além
-                  de experiência em desenvolvimento mobile e DevOps. Sempre busco aprender novas tecnologias e aplicar as
+                  Minha expertise inclui desenvolvimento frontend com React e Next.js, backend com SpringBoot e Python, além
+                  de experiência em DevOps. Sempre busco aprender novas tecnologias e aplicar as
                   melhores práticas em meus projetos.
                 </p>
                 <p className="text-gray-300 text-lg leading-relaxed">
-                  Quando não estou codando, gosto de contribuir para projetos open source, escrever artigos técnicos e
-                  participar de eventos da comunidade de desenvolvedores.
+                  Quando não estou codando, gosto de estudar desenvolvimento de jogos, explorar novas linguagens e ler livros sobre tecnologia e inovação.
                 </p>
               </div>
             </section>
@@ -188,36 +173,6 @@ export default function ProfileView() {
                       <p className="text-gray-300">{exp.description}</p>
                     </div>
                 ))}
-              </div>
-            </section>
-
-            {/* Contact Info */}
-            <section>
-              <h2 className="text-3xl font-bold text-white mb-6">Informações de contato</h2>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-gray-900 rounded-lg p-6 border border-gray-800">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
-                      <Mail className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-white font-semibold">Email</h3>
-                      <p className="text-gray-300">seu.email@exemplo.com</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-gray-900 rounded-lg p-6 border border-gray-800">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center">
-                      <Phone className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-white font-semibold">Telefone</h3>
-                      <p className="text-gray-300">+55 (11) 99999-9999</p>
-                    </div>
-                  </div>
-                </div>
               </div>
             </section>
           </div>

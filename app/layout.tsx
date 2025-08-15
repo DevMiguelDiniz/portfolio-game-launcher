@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Portfolio Steam - Desenvolvedor Full Stack',
     description: 'Portfolio profissional minimalista inspirado na Steam com design escuro e elegante.',
-    creator: '@seuusuario',
+    creator: '@DevMiguelDiniz',
   },
   robots: {
     index: true,

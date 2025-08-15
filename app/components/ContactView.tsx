@@ -67,7 +67,7 @@ export default function ContactView() {
                     </div>
                     <div>
                       <h3 className="text-white font-semibold text-base lg:text-lg">Email</h3>
-                      <p className="text-gray-300 text-sm lg:text-base">seu.email@exemplo.com</p>
+                      <p className="text-gray-300 text-sm lg:text-base">miguelfdiniz@gmail.com</p>
                       <p className="text-gray-400 text-xs lg:text-sm">Resposta em até 24 horas</p>
                     </div>
                   </div>
@@ -78,8 +78,8 @@ export default function ContactView() {
                     </div>
                     <div>
                       <h3 className="text-white font-semibold text-base lg:text-lg">Telefone</h3>
-                      <p className="text-gray-300 text-sm lg:text-base">+55 (11) 99999-9999</p>
-                      <p className="text-gray-400 text-xs lg:text-sm">Seg-Sex, 9h às 18h</p>
+                      <p className="text-gray-300 text-sm lg:text-base">+55 (31) 99565-6669</p>
+                      <p className="text-gray-400 text-xs lg:text-sm">Seg-Sex, 10h às 15h</p>
                     </div>
                   </div>
 
@@ -89,7 +89,7 @@ export default function ContactView() {
                     </div>
                     <div>
                       <h3 className="text-white font-semibold text-base lg:text-lg">Localização</h3>
-                      <p className="text-gray-300 text-sm lg:text-base">São Paulo, Brasil</p>
+                      <p className="text-gray-300 text-sm lg:text-base">Minas Gerais, Brasil</p>
                       <p className="text-gray-400 text-xs lg:text-sm">Disponível para trabalho remoto</p>
                     </div>
                   </div>

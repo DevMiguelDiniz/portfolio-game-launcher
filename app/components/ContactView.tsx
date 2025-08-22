@@ -41,13 +41,23 @@ export default function ContactView() {
     }
 
     return (
-        <div className="h-full overflow-y-auto bg-gray-950">
+        <div className="h-full overflow-y-auto bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950">
             {/* Hero Section */}
-            <div className="bg-gray-900 border-b border-gray-800 p-4 lg:p-8">
-                <div className="max-w-4xl mx-auto text-center">
-                    <MessageCircle className="w-12 h-12 lg:w-16 lg:h-16 text-gray-400 mx-auto mb-4" />
-                    <h1 className="text-2xl lg:text-4xl font-bold text-white mb-4 lg:mb-4">{t('contact.title')}</h1>
-                    <p className="text-gray-400 text-sm lg:text-lg">
+            <div className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 border-b border-gray-800/50 p-4 lg:p-8 relative overflow-hidden">
+                {/* Background decoration */}
+                <div className="absolute inset-0 opacity-10">
+                    <div className="absolute top-20 left-20 w-32 h-32 bg-blue-500 rounded-full blur-3xl animate-float"></div>
+                    <div className="absolute bottom-20 right-20 w-40 h-40 bg-purple-500 rounded-full blur-3xl animate-float-delayed"></div>
+                </div>
+
+                <div className="max-w-4xl mx-auto text-center relative z-10">
+                    <div className="w-16 h-16 lg:w-20 lg:h-20 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-2xl shadow-blue-500/25 animate-bounce-in">
+                        <MessageCircle className="w-8 h-8 lg:w-10 lg:h-10 text-white" />
+                    </div>
+                    <h1 className="text-3xl lg:text-5xl font-bold text-white mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent animate-fade-in">
+                        {t('contact.title')}
+                    </h1>
+                    <p className="text-gray-400 text-base lg:text-xl max-w-2xl mx-auto leading-relaxed animate-slide-in-right">
                         {t('contact.subtitle')}
                     </p>
                 </div>
@@ -58,75 +68,101 @@ export default function ContactView() {
                 <div className="max-w-6xl mx-auto">
                     <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
                         {/* Contact Info */}
-                        <div>
-                            <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6 lg:mb-8">{t('contact.letsTalk')}</h2>
+                        <div className="space-y-6">
+                            <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6 lg:mb-8 flex items-center">
+                                <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg mr-3"></div>
+                                {t('contact.letsTalk')}
+                            </h2>
 
                             {/* Contact Methods */}
-                            <div className="space-y-4 lg:space-y-6 mb-6 lg:mb-8">
-                                <div className="flex items-center space-x-3 lg:space-x-4">
-                                    <div className="w-12 h-12 lg:w-14 lg:h-14 bg-blue-600 rounded-lg flex items-center justify-center">
-                                        <Mail className="w-6 h-6 lg:w-7 lg:h-7 text-white" />
+                            <div className="space-y-4 lg:space-y-6">
+                                {[
+                                    {
+                                        icon: <Mail className="w-6 h-6 lg:w-7 lg:h-7 text-white" />,
+                                        title: t('contact.email'),
+                                        value: "miguelfdiniz@gmail.com",
+                                        subtitle: t('contact.response24h'),
+                                        bgColor: "from-blue-500 to-blue-600",
+                                        delay: "0ms"
+                                    },
+                                    {
+                                        icon: <Phone className="w-6 h-6 lg:w-7 lg:h-7 text-white" />,
+                                        title: t('contact.phone'),
+                                        value: "+55 (31) 99565-6669",
+                                        subtitle: t('contact.weekdays'),
+                                        bgColor: "from-green-500 to-green-600",
+                                        delay: "150ms"
+                                    },
+                                    {
+                                        icon: <MapPin className="w-6 h-6 lg:w-7 lg:h-7 text-white" />,
+                                        title: t('contact.location'),
+                                        value: t('profile.location'),
+                                        subtitle: t('contact.remoteAvailable'),
+                                        bgColor: "from-purple-500 to-purple-600",
+                                        delay: "300ms"
+                                    }
+                                ].map((contact, index) => (
+                                    <div
+                                        key={index}
+                                        className="flex items-center space-x-4 p-4 bg-gray-900/60 backdrop-blur-sm rounded-2xl border border-gray-800/50 hover:border-gray-700/50 transition-all duration-300 hover-lift group"
+                                        style={{ animationDelay: contact.delay }}
+                                    >
+                                        <div className={`w-14 h-14 lg:w-16 lg:h-16 bg-gradient-to-br ${contact.bgColor} rounded-xl flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6`}>
+                                            {contact.icon}
+                                        </div>
+                                        <div className="flex-1">
+                                            <h3 className="text-white font-semibold text-base lg:text-lg group-hover:text-blue-400 transition-colors duration-300">
+                                                {contact.title}
+                                            </h3>
+                                            <p className="text-gray-300 text-sm lg:text-base font-medium">{contact.value}</p>
+                                            <p className="text-gray-400 text-xs lg:text-sm">{contact.subtitle}</p>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <h3 className="text-white font-semibold text-base lg:text-lg">{t('contact.email')}</h3>
-                                        <p className="text-gray-300 text-sm lg:text-base">miguelfdiniz@gmail.com</p>
-                                        <p className="text-gray-400 text-xs lg:text-sm">{t('contact.response24h')}</p>
-                                    </div>
-                                </div>
-
-                                <div className="flex items-center space-x-3 lg:space-x-4">
-                                    <div className="w-12 h-12 lg:w-14 lg:h-14 bg-green-600 rounded-lg flex items-center justify-center">
-                                        <Phone className="w-6 h-6 lg:w-7 lg:h-7 text-white" />
-                                    </div>
-                                    <div>
-                                        <h3 className="text-white font-semibold text-base lg:text-lg">{t('contact.phone')}</h3>
-                                        <p className="text-gray-300 text-sm lg:text-base">+55 (31) 99565-6669</p>
-                                        <p className="text-gray-400 text-xs lg:text-sm">{t('contact.weekdays')}</p>
-                                    </div>
-                                </div>
-
-                                <div className="flex items-center space-x-3 lg:space-x-4">
-                                    <div className="w-12 h-12 lg:w-14 lg:h-14 bg-purple-600 rounded-lg flex items-center justify-center">
-                                        <MapPin className="w-6 h-6 lg:w-7 lg:h-7 text-white" />
-                                    </div>
-                                    <div>
-                                        <h3 className="text-white font-semibold text-base lg:text-lg">{t('contact.location')}</h3>
-                                        <p className="text-gray-300 text-sm lg:text-base">{t('profile.location')}</p>
-                                        <p className="text-gray-400 text-xs lg:text-sm">{t('contact.remoteAvailable')}</p>
-                                    </div>
-                                </div>
+                                ))}
                             </div>
 
                             {/* Availability */}
-                            <div className="bg-gray-900 rounded-lg p-4 lg:p-6 border border-gray-800">
-                                <div className="flex items-center space-x-3 mb-3 lg:mb-4">
-                                    <Clock className="w-5 h-5 lg:w-6 lg:h-6 text-green-500" />
+                            <div className="bg-gradient-to-br from-gray-900/80 to-gray-800/60 backdrop-blur-sm rounded-2xl p-6 border border-gray-800/50 hover:border-green-500/30 transition-all duration-300 steam-glow">
+                                <div className="flex items-center space-x-3 mb-4">
+                                    <div className="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center animate-pulse">
+                                        <Clock className="w-5 h-5 text-white" />
+                                    </div>
                                     <h3 className="text-white font-semibold text-base lg:text-lg">{t('contact.availability')}</h3>
                                 </div>
-                                <div className="space-y-2 text-gray-300 text-sm lg:text-base">
-                                    <p>✅ {t('contact.available')}</p>
-                                    <p>✅ {t('contact.remote')}</p>
-                                    <p>✅ {t('contact.freelance')}</p>
-                                    <p>✅ {t('contact.consulting')}</p>
+                                <div className="space-y-3 text-gray-300 text-sm lg:text-base">
+                                    {[
+                                        t('contact.available'),
+                                        t('contact.remote'),
+                                        t('contact.freelance'),
+                                        t('contact.consulting')
+                                    ].map((item, index) => (
+                                        <div key={index} className="flex items-center space-x-3 group">
+                                            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                                            <span className="group-hover:text-white transition-colors duration-300">{item}</span>
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
                         </div>
 
                         {/* Contact Form */}
-                        <div className="bg-gray-900 rounded-lg p-4 lg:p-8 border border-gray-800">
-                            <h3 className="text-xl lg:text-2xl font-bold text-white mb-4 lg:mb-6">{t('contact.sendMessage')}</h3>
+                        <div className="bg-gradient-to-br from-gray-900/80 to-gray-800/60 backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-gray-800/50 hover:border-blue-500/30 transition-all duration-300 steam-glow">
+                            <h3 className="text-xl lg:text-2xl font-bold text-white mb-6 flex items-center">
+                                <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg mr-3"></div>
+                                {t('contact.sendMessage')}
+                            </h3>
 
                             {isSubmitted && (
-                                <div className="mb-4 lg:mb-6 p-3 lg:p-4 bg-green-600/20 border border-green-600/50 rounded-lg flex items-center space-x-3">
-                                    <CheckCircle className="w-4 h-4 lg:w-5 lg:h-5 text-green-500" />
-                                    <span className="text-green-400 text-sm lg:text-base">
-                    {t('contact.success')}
-                  </span>
+                                <div className="mb-6 p-4 bg-gradient-to-r from-green-600/20 to-emerald-600/20 border border-green-500/50 rounded-xl flex items-center space-x-3 animate-bounce-in">
+                                    <CheckCircle className="w-5 h-5 text-green-400 animate-pulse" />
+                                    <span className="text-green-400 text-sm lg:text-base font-medium">
+                                        {t('contact.success')}
+                                    </span>
                                 </div>
                             )}
 
-                            <form onSubmit={handleSubmit} className="space-y-4 lg:space-y-6">
-                                <div className="grid sm:grid-cols-2 gap-3 lg:gap-4">
+                            <form onSubmit={handleSubmit} className="space-y-6">
+                                <div className="grid sm:grid-cols-2 gap-4">
                                     <div>
                                         <label htmlFor="name" className="block text-white font-semibold mb-2 text-sm lg:text-base">
                                             {t('contact.name')} *
@@ -137,7 +173,7 @@ export default function ContactView() {
                                             type="text"
                                             value={formData.name}
                                             onChange={handleChange}
-                                            className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:border-blue-600 text-sm lg:text-base"
+                                            className="input-enhanced text-white placeholder-gray-400"
                                             placeholder={t('contact.namePlaceholder')}
                                             required
                                             disabled={isSubmitting}
@@ -154,7 +190,7 @@ export default function ContactView() {
                                             type="email"
                                             value={formData.email}
                                             onChange={handleChange}
-                                            className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:border-blue-600 text-sm lg:text-base"
+                                            className="input-enhanced text-white placeholder-gray-400"
                                             placeholder={t('contact.emailPlaceholder')}
                                             required
                                             disabled={isSubmitting}
@@ -172,7 +208,7 @@ export default function ContactView() {
                                         type="text"
                                         value={formData.subject}
                                         onChange={handleChange}
-                                        className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:border-blue-600 text-sm lg:text-base"
+                                        className="input-enhanced text-white placeholder-gray-400"
                                         placeholder={t('contact.subjectPlaceholder')}
                                         required
                                         disabled={isSubmitting}
@@ -188,7 +224,7 @@ export default function ContactView() {
                                         name="message"
                                         value={formData.message}
                                         onChange={handleChange}
-                                        className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 min-h-[120px] lg:min-h-[150px] focus:border-blue-600 text-sm lg:text-base"
+                                        className="input-enhanced min-h-[120px] lg:min-h-[150px] text-white placeholder-gray-400 resize-none"
                                         placeholder={t('contact.messagePlaceholder')}
                                         required
                                         disabled={isSubmitting}
@@ -197,25 +233,25 @@ export default function ContactView() {
 
                                 <Button
                                     type="submit"
-                                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 lg:py-3 text-sm lg:text-base"
+                                    className="btn-enhanced w-full py-3 lg:py-4 text-sm lg:text-base font-semibold"
                                     disabled={isSubmitting}
                                 >
                                     {isSubmitting ? (
                                         <>
-                                            <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+                                            <div className="spinner-enhanced w-4 h-4 mr-2" />
                                             {t('contact.sending')}
                                         </>
                                     ) : (
                                         <>
-                                            <Send className="w-3 h-3 lg:w-4 lg:h-4 mr-2" />
+                                            <Send className="w-4 h-4 mr-2 transition-transform duration-300 group-hover:translate-x-1" />
                                             {t('contact.send')}
                                         </>
                                     )}
                                 </Button>
                             </form>
 
-                            <div className="mt-4 lg:mt-6 pt-4 lg:pt-6 border-t border-gray-800">
-                                <p className="text-gray-400 text-xs lg:text-sm text-center">
+                            <div className="mt-6 pt-6 border-t border-gray-800/50">
+                                <p className="text-gray-400 text-xs lg:text-sm text-center leading-relaxed">
                                     {t('contact.agreement')}
                                 </p>
                             </div>

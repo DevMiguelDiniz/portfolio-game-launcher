@@ -1,7 +1,10 @@
+// app/components/Header.tsx
 "use client"
 
 import { Github, Linkedin, Mail, User, FolderOpen, MessageCircle, Trophy, Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useLanguage } from "@/hooks/use-language"
+import LanguageSwitcher from "./LanguageSwitcher"
 import type { TabType } from "../page"
 
 interface HeaderProps {
@@ -12,11 +15,13 @@ interface HeaderProps {
 }
 
 export default function Header({ activeTab, setActiveTab, sidebarOpen, setSidebarOpen }: HeaderProps) {
+    const { t } = useLanguage()
+
     const tabs = [
-        { id: "projects" as TabType, label: "Projetos", icon: <FolderOpen className="w-4 h-4" /> },
-        { id: "profile" as TabType, label: "Perfil", icon: <User className="w-4 h-4" /> },
-        { id: "achievements" as TabType, label: "Conquistas", icon: <Trophy className="w-4 h-4" /> },
-        { id: "contact" as TabType, label: "Contato", icon: <MessageCircle className="w-4 h-4" /> },
+        { id: "projects" as TabType, label: t('nav.projects'), icon: <FolderOpen className="w-4 h-4" /> },
+        { id: "profile" as TabType, label: t('nav.profile'), icon: <User className="w-4 h-4" /> },
+        { id: "achievements" as TabType, label: t('nav.achievements'), icon: <Trophy className="w-4 h-4" /> },
+        { id: "contact" as TabType, label: t('nav.contact'), icon: <MessageCircle className="w-4 h-4" /> },
     ]
 
     return (
@@ -62,7 +67,7 @@ export default function Header({ activeTab, setActiveTab, sidebarOpen, setSideba
                 ))}
             </nav>
 
-            {/* Social Links */}
+            {/* Social Links and Language Switcher */}
             <div className="flex items-center space-x-1 sm:space-x-2">
                 <Button
                     variant="ghost"
@@ -85,6 +90,7 @@ export default function Header({ activeTab, setActiveTab, sidebarOpen, setSideba
                 >
                     <Mail className="w-3 h-3 sm:w-4 sm:h-4" />
                 </Button>
+                <LanguageSwitcher />
             </div>
         </header>
     )

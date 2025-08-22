@@ -15,8 +15,11 @@ import {
     Crown,
 } from "lucide-react"
 import { projects } from "../data/projects"
+import { useLanguage } from "@/hooks/use-language"
 
 export default function AchievementsView() {
+    const { t } = useLanguage()
+
     // Calculate statistics from projects
     const totalProjects = projects.length
     const featuredProjects = projects.filter((p) => p.featured).length
@@ -35,34 +38,40 @@ export default function AchievementsView() {
     // Category statistics
     const categoryStats = [
         {
-            name: "Frontend",
+            name: t('category.frontend'),
             count: projects.filter((p) => p.category === "frontend").length,
             icon: <Globe className="w-4 h-4 lg:w-5 lg:h-5" />,
             color: "text-blue-400",
         },
         {
-            name: "Backend",
+            name: t('category.backend'),
             count: projects.filter((p) => p.category === "backend").length,
             icon: <Database className="w-4 h-4 lg:w-5 lg:h-5" />,
             color: "text-green-400",
         },
         {
-            name: "Mobile",
+            name: t('category.mobile'),
             count: projects.filter((p) => p.category === "mobile").length,
             icon: <Smartphone className="w-4 h-4 lg:w-5 lg:h-5" />,
             color: "text-purple-400",
         },
         {
-            name: "Full Stack",
+            name: t('category.fullstack'),
             count: projects.filter((p) => p.category === "fullstack").length,
             icon: <Code className="w-4 h-4 lg:w-5 lg:h-5" />,
             color: "text-orange-400",
         },
         {
-            name: "Web",
+            name: t('category.web'),
             count: projects.filter((p) => p.category === "web").length,
             icon: <Globe className="w-4 h-4 lg:w-5 lg:h-5" />,
             color: "text-cyan-400",
+        },
+        {
+            name: t('category.desktop'),
+            count: projects.filter((p) => p.category === "desktop").length,
+            icon: <Code className="w-4 h-4 lg:w-5 lg:h-5" />,
+            color: "text-yellow-400",
         },
     ].filter((cat) => cat.count > 0)
 
@@ -70,8 +79,8 @@ export default function AchievementsView() {
     const achievements = [
         {
             id: "first-project",
-            title: "Primeiro Projeto",
-            description: "Completou o primeiro projeto",
+            title: t('achievements.firstProject') || "Primeiro Projeto",
+            description: t('achievements.firstProjectDesc') || "Completou o primeiro projeto",
             icon: <Star className="w-5 h-5 lg:w-6 lg:h-6" />,
             unlocked: true,
             rarity: "common",
@@ -79,8 +88,8 @@ export default function AchievementsView() {
         },
         {
             id: "tech-master",
-            title: "Mestre das Tecnologias",
-            description: `Dominou ${uniqueTechnologies.length} tecnologias diferentes`,
+            title: t('achievements.techMaster') || "Mestre das Tecnologias",
+            description: `${t('achievements.techMasterDesc') || "Dominou"} ${uniqueTechnologies.length} ${t('achievements.techMasterDesc2') || "tecnologias diferentes"}`,
             icon: <Code className="w-5 h-5 lg:w-6 lg:h-6" />,
             unlocked: uniqueTechnologies.length >= 10,
             rarity: "rare",
@@ -88,8 +97,8 @@ export default function AchievementsView() {
         },
         {
             id: "featured-creator",
-            title: "Criador Destacado",
-            description: `Criou ${featuredProjects} projetos em destaque`,
+            title: t('achievements.featuredCreator') || "Criador Destacado",
+            description: `${t('achievements.featuredCreatorDesc') || "Criou"} ${featuredProjects} ${t('achievements.featuredCreatorDesc2') || "projetos em destaque"}`,
             icon: <Crown className="w-5 h-5 lg:w-6 lg:h-6" />,
             unlocked: featuredProjects >= 2,
             rarity: "epic",
@@ -97,8 +106,8 @@ export default function AchievementsView() {
         },
         {
             id: "full-stack-hero",
-            title: "Herói Full Stack",
-            description: "Completou projetos full stack complexos",
+            title: t('achievements.fullStackHero') || "Herói Full Stack",
+            description: t('achievements.fullStackHeroDesc') || "Completou projetos full stack complexos",
             icon: <Zap className="w-5 h-5 lg:w-6 lg:h-6" />,
             unlocked: projects.filter((p) => p.category === "fullstack").length >= 2,
             rarity: "legendary",
@@ -106,8 +115,8 @@ export default function AchievementsView() {
         },
         {
             id: "mobile-pioneer",
-            title: "Pioneiro Mobile",
-            description: "Desenvolveu aplicações mobile nativas",
+            title: t('achievements.mobilePioneer') || "Pioneiro Mobile",
+            description: t('achievements.mobilePioneerDesc') || "Desenvolveu aplicações mobile nativas",
             icon: <Smartphone className="w-5 h-5 lg:w-6 lg:h-6" />,
             unlocked: projects.filter((p) => p.category === "mobile").length >= 1,
             rarity: "rare",
@@ -115,8 +124,8 @@ export default function AchievementsView() {
         },
         {
             id: "project-collector",
-            title: "Colecionador de Projetos",
-            description: `Completou ${totalProjects} projetos únicos`,
+            title: t('achievements.projectCollector') || "Colecionador de Projetos",
+            description: `${t('achievements.projectCollectorDesc') || "Completou"} ${totalProjects} ${t('achievements.projectCollectorDesc2') || "projetos únicos"}`,
             icon: <Trophy className="w-5 h-5 lg:w-6 lg:h-6" />,
             unlocked: totalProjects >= 5,
             rarity: "epic",
@@ -152,8 +161,8 @@ export default function AchievementsView() {
                             <Trophy className="w-6 h-6 lg:w-8 lg:h-8 text-white" />
                         </div>
                         <div className="text-center sm:text-left">
-                            <h1 className="text-2xl lg:text-4xl font-bold text-white">Conquistas</h1>
-                            <p className="text-gray-400 text-sm lg:text-lg">Estatísticas detalhadas e marcos alcançados</p>
+                            <h1 className="text-2xl lg:text-4xl font-bold text-white">{t('achievements.title')}</h1>
+                            <p className="text-gray-400 text-sm lg:text-lg">{t('achievements.subtitle')}</p>
                         </div>
                     </div>
 
@@ -161,19 +170,19 @@ export default function AchievementsView() {
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-6">
                         <div className="bg-gray-800 rounded-lg p-3 lg:p-4 border border-gray-700">
                             <div className="text-xl lg:text-2xl font-bold text-white">{totalProjects}</div>
-                            <div className="text-gray-400 text-xs lg:text-sm">Projetos Totais</div>
+                            <div className="text-gray-400 text-xs lg:text-sm">{t('achievements.totalProjects')}</div>
                         </div>
                         <div className="bg-gray-800 rounded-lg p-3 lg:p-4 border border-gray-700">
                             <div className="text-xl lg:text-2xl font-bold text-blue-400">{featuredProjects}</div>
-                            <div className="text-gray-400 text-xs lg:text-sm">Em Destaque</div>
+                            <div className="text-gray-400 text-xs lg:text-sm">{t('achievements.featured')}</div>
                         </div>
                         <div className="bg-gray-800 rounded-lg p-3 lg:p-4 border border-gray-700">
                             <div className="text-xl lg:text-2xl font-bold text-green-400">{uniqueTechnologies.length}</div>
-                            <div className="text-gray-400 text-xs lg:text-sm">Tecnologias</div>
+                            <div className="text-gray-400 text-xs lg:text-sm">{t('achievements.technologies')}</div>
                         </div>
                         <div className="bg-gray-800 rounded-lg p-3 lg:p-4 border border-gray-700">
                             <div className="text-xl lg:text-2xl font-bold text-yellow-400">{completionRate}%</div>
-                            <div className="text-gray-400 text-xs lg:text-sm">Conquistas</div>
+                            <div className="text-gray-400 text-xs lg:text-sm">{t('achievements.completion')}</div>
                         </div>
                     </div>
                 </div>
@@ -186,7 +195,7 @@ export default function AchievementsView() {
                     <section>
                         <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4 lg:mb-6 flex items-center">
                             <Award className="w-6 h-6 lg:w-8 lg:h-8 mr-2 lg:mr-3 text-yellow-400" />
-                            Conquistas Desbloqueadas
+                            {t('achievements.unlocked')}
                         </h2>
                         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
                             {achievements.map((achievement) => (
@@ -233,8 +242,8 @@ export default function AchievementsView() {
                                                                         : "bg-gray-600/20 text-gray-400"
                                                         }`}
                                                     >
-                            {achievement.rarity}
-                          </span>
+                                                        {achievement.rarity}
+                                                    </span>
                                                 )}
                                             </div>
                                             <p
@@ -259,7 +268,7 @@ export default function AchievementsView() {
                     <section>
                         <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4 lg:mb-6 flex items-center">
                             <TrendingUp className="w-6 h-6 lg:w-8 lg:h-8 mr-2 lg:mr-3 text-blue-400" />
-                            Estatísticas de Tecnologias
+                            {t('achievements.techStats')}
                         </h2>
                         <div className="bg-gray-900 rounded-lg p-4 lg:p-6 border border-gray-800">
                             <div className="grid gap-3 lg:gap-4">
@@ -270,7 +279,7 @@ export default function AchievementsView() {
                                             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1">
                                                 <span className="text-white font-medium text-sm lg:text-base">{tech.name}</span>
                                                 <div className="flex items-center space-x-2 mt-1 sm:mt-0">
-                                                    <span className="text-gray-400 text-xs lg:text-sm">{tech.usage} projetos</span>
+                                                    <span className="text-gray-400 text-xs lg:text-sm">{tech.usage} {t('common.projects')}</span>
                                                     <span className="text-blue-400 text-xs lg:text-sm font-mono">{tech.percentage}%</span>
                                                 </div>
                                             </div>
@@ -291,7 +300,7 @@ export default function AchievementsView() {
                     <section>
                         <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4 lg:mb-6 flex items-center">
                             <Target className="w-6 h-6 lg:w-8 lg:h-8 mr-2 lg:mr-3 text-green-400" />
-                            Distribuição por Categoria
+                            {t('achievements.categoryDistribution')}
                         </h2>
                         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
                             {categoryStats.map((category) => (
@@ -307,7 +316,7 @@ export default function AchievementsView() {
                                         </div>
                                         <div>
                                             <h3 className="text-lg lg:text-xl font-bold text-white">{category.name}</h3>
-                                            <p className="text-gray-400 text-xs lg:text-sm">Projetos desenvolvidos</p>
+                                            <p className="text-gray-400 text-xs lg:text-sm">{t('achievements.projectsDeveloped')}</p>
                                         </div>
                                     </div>
                                     <div className="text-2xl lg:text-3xl font-bold text-white mb-2">{category.count}</div>
@@ -322,13 +331,15 @@ export default function AchievementsView() {
                                                             ? "bg-purple-600"
                                                             : category.color.includes("orange")
                                                                 ? "bg-orange-600"
-                                                                : "bg-cyan-600"
+                                                                : category.color.includes("cyan")
+                                                                    ? "bg-cyan-600"
+                                                                    : "bg-yellow-600"
                                             }`}
                                             style={{ width: `${Math.round((category.count / totalProjects) * 100)}%` }}
                                         ></div>
                                     </div>
                                     <div className="text-gray-400 text-xs lg:text-sm mt-2">
-                                        {Math.round((category.count / totalProjects) * 100)}% do total
+                                        {Math.round((category.count / totalProjects) * 100)}% {t('achievements.totalOf')}
                                     </div>
                                 </div>
                             ))}
@@ -337,27 +348,27 @@ export default function AchievementsView() {
 
                     {/* Progress Summary */}
                     <section className="bg-gray-900 rounded-lg p-6 lg:p-8 border border-gray-800">
-                        <h2 className="text-xl lg:text-2xl font-bold text-white mb-4 lg:mb-6 text-center">Resumo de Progresso</h2>
+                        <h2 className="text-xl lg:text-2xl font-bold text-white mb-4 lg:mb-6 text-center">{t('achievements.progressSummary')}</h2>
                         <div className="grid sm:grid-cols-3 gap-6 lg:gap-8 text-center">
                             <div>
                                 <div className="text-3xl lg:text-4xl font-bold text-blue-400 mb-2">
                                     {unlockedAchievements.length}/{achievements.length}
                                 </div>
-                                <div className="text-gray-400 text-sm lg:text-base">Conquistas Desbloqueadas</div>
+                                <div className="text-gray-400 text-sm lg:text-base">{t('achievements.unlockedAchievements')}</div>
                             </div>
                             <div>
                                 <div className="text-3xl lg:text-4xl font-bold text-green-400 mb-2">{uniqueTechnologies.length}</div>
-                                <div className="text-gray-400 text-sm lg:text-base">Tecnologias Dominadas</div>
+                                <div className="text-gray-400 text-sm lg:text-base">{t('achievements.technologiesMastered')}</div>
                             </div>
                             <div>
                                 <div className="text-3xl lg:text-4xl font-bold text-yellow-400 mb-2">{totalProjects}</div>
-                                <div className="text-gray-400 text-sm lg:text-base">Projetos Completados</div>
+                                <div className="text-gray-400 text-sm lg:text-base">{t('achievements.projectsCompleted')}</div>
                             </div>
                         </div>
 
                         <div className="mt-6 lg:mt-8">
                             <div className="flex items-center justify-between mb-2">
-                                <span className="text-white font-medium text-sm lg:text-base">Progresso Geral</span>
+                                <span className="text-white font-medium text-sm lg:text-base">{t('achievements.overallProgress')}</span>
                                 <span className="text-blue-400 font-mono text-sm lg:text-base">{completionRate}%</span>
                             </div>
                             <div className="w-full bg-gray-800 rounded-full h-3">

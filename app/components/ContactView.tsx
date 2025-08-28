@@ -3,34 +3,44 @@
 import type React from "react"
 
 import { useState } from "react"
-import { Mail, Phone, MapPin, Send, MessageCircle, Clock, CheckCircle } from "lucide-react"
+import { Mail, Phone, MapPin, Send, MessageCircle, Clock, CheckCircle, AlertCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useLanguage } from "@/hooks/use-language"
+import { useEmailJS, type EmailData } from "@/hooks/use-emailjs"
 
 export default function ContactView() {
     const { t } = useLanguage()
-    const [formData, setFormData] = useState({
+    const { sendEmail, isLoading, error, clearError } = useEmailJS()
+    const [formData, setFormData] = useState<EmailData>({
         name: "",
         email: "",
         subject: "",
         message: "",
     })
-    const [isSubmitting, setIsSubmitting] = useState(false)
     const [isSubmitted, setIsSubmitted] = useState(false)
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
-        setIsSubmitting(true)
 
-        await new Promise((resolve) => setTimeout(resolve, 2000))
+        // Limpa erros anteriores
+        clearError()
 
-        setIsSubmitting(false)
-        setIsSubmitted(true)
-        setFormData({ name: "", email: "", subject: "", message: "" })
+        // Validação básica
+        if (!formData.name.trim() || !formData.email.trim() || !formData.subject.trim() || !formData.message.trim()) {
+            return
+        }
 
-        setTimeout(() => setIsSubmitted(false), 5000)
+        const success = await sendEmail(formData)
+
+        if (success) {
+            setIsSubmitted(true)
+            setFormData({ name: "", email: "", subject: "", message: "" })
+
+            // Remove a mensagem de sucesso após 7 segundos
+            setTimeout(() => setIsSubmitted(false), 7000)
+        }
     }
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -152,12 +162,28 @@ export default function ContactView() {
                                 {t('contact.sendMessage')}
                             </h3>
 
+                            {/* Success Message */}
                             {isSubmitted && (
                                 <div className="mb-6 p-4 bg-gradient-to-r from-green-600/20 to-emerald-600/20 border border-green-500/50 rounded-xl flex items-center space-x-3 animate-bounce-in">
                                     <CheckCircle className="w-5 h-5 text-green-400 animate-pulse" />
                                     <span className="text-green-400 text-sm lg:text-base font-medium">
                                         {t('contact.success')}
                                     </span>
+                                </div>
+                            )}
+
+                            {/* Error Message */}
+                            {error && (
+                                <div className="mb-6 p-4 bg-gradient-to-r from-red-600/20 to-red-600/20 border border-red-500/50 rounded-xl flex items-center space-x-3 animate-bounce-in">
+                                    <AlertCircle className="w-5 h-5 text-red-400" />
+                                    <div className="flex-1">
+                                        <span className="text-red-400 text-sm lg:text-base font-medium block">
+                                            Erro ao enviar mensagem
+                                        </span>
+                                        <span className="text-red-300 text-xs lg:text-sm">
+                                            {error}
+                                        </span>
+                                    </div>
                                 </div>
                             )}
 
@@ -176,7 +202,7 @@ export default function ContactView() {
                                             className="input-enhanced text-white placeholder-gray-400"
                                             placeholder={t('contact.namePlaceholder')}
                                             required
-                                            disabled={isSubmitting}
+                                            disabled={isLoading}
                                         />
                                     </div>
 
@@ -193,7 +219,7 @@ export default function ContactView() {
                                             className="input-enhanced text-white placeholder-gray-400"
                                             placeholder={t('contact.emailPlaceholder')}
                                             required
-                                            disabled={isSubmitting}
+                                            disabled={isLoading}
                                         />
                                     </div>
                                 </div>
@@ -211,7 +237,7 @@ export default function ContactView() {
                                         className="input-enhanced text-white placeholder-gray-400"
                                         placeholder={t('contact.subjectPlaceholder')}
                                         required
-                                        disabled={isSubmitting}
+                                        disabled={isLoading}
                                     />
                                 </div>
 
@@ -227,16 +253,16 @@ export default function ContactView() {
                                         className="input-enhanced min-h-[120px] lg:min-h-[150px] text-white placeholder-gray-400 resize-none"
                                         placeholder={t('contact.messagePlaceholder')}
                                         required
-                                        disabled={isSubmitting}
+                                        disabled={isLoading}
                                     />
                                 </div>
 
                                 <Button
                                     type="submit"
                                     className="btn-enhanced w-full py-3 lg:py-4 text-sm lg:text-base font-semibold"
-                                    disabled={isSubmitting}
+                                    disabled={isLoading}
                                 >
-                                    {isSubmitting ? (
+                                    {isLoading ? (
                                         <>
                                             <div className="spinner-enhanced w-4 h-4 mr-2" />
                                             {t('contact.sending')}

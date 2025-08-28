@@ -1,8 +1,10 @@
 "use client"
 
+import { useState } from "react"
 import Image from "next/image"
-import { ExternalLink, Github, Calendar, Code, Star, Play } from "lucide-react"
+import { ExternalLink, Github, Calendar, Code, Star, Play, Video } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { YouTubeModal, useYouTubeVideoId } from "@/components/ui/youtube-modal"
 
 interface Project {
     id: string
@@ -14,6 +16,7 @@ interface Project {
     technologies: string[]
     githubUrl?: string
     liveUrl?: string
+    videoUrl?: string
     featured?: boolean
     date?: string
     challenges?: string[]
@@ -25,6 +28,15 @@ interface ProjectDetailProps {
 }
 
 export default function ProjectDetail({ project }: ProjectDetailProps) {
+    const [isVideoModalOpen, setIsVideoModalOpen] = useState(false)
+    const videoId = useYouTubeVideoId(project.videoUrl || '')
+
+    const openVideoModal = () => {
+        if (videoId) {
+            setIsVideoModalOpen(true)
+        }
+    }
+
     return (
         <div className="h-full overflow-y-auto bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950">
             {/* Hero Section */}
@@ -48,21 +60,21 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                 <div className="absolute bottom-0 left-0 right-0 p-4 lg:p-8">
                     <div className="max-w-6xl mx-auto">
                         <div className="flex flex-wrap items-center gap-3 mb-4 animate-slide-in-right">
-                <span className="px-3 py-1.5 bg-gray-800/80 backdrop-blur-sm text-gray-300 text-xs lg:text-sm rounded-xl border border-gray-700/50 font-medium uppercase tracking-wide">
-                  {project.category}
-                </span>
+                            <span className="px-3 py-1.5 bg-gray-800/80 backdrop-blur-sm text-gray-300 text-xs lg:text-sm rounded-xl border border-gray-700/50 font-medium uppercase tracking-wide">
+                                {project.category}
+                            </span>
                             {project.featured && (
                                 <span className="px-3 py-1.5 bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-xs lg:text-sm rounded-xl flex items-center font-medium shadow-lg shadow-yellow-500/25 animate-pulse">
-                      <Star className="w-3 h-3 mr-1 fill-current" />
-                      DESTAQUE
-                    </span>
+                                    <Star className="w-3 h-3 mr-1 fill-current" />
+                                    DESTAQUE
+                                </span>
                             )}
                         </div>
 
                         <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 animate-fade-in">
-                <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                  {project.title}
-                </span>
+                            <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                                {project.title}
+                            </span>
                         </h1>
 
                         {project.date && (
@@ -83,6 +95,18 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                                     Ver Demo
                                 </Button>
                             )}
+
+                            {project.videoUrl && videoId && (
+                                <Button
+                                    size="sm"
+                                    className="btn-enhanced bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white text-xs lg:text-sm font-semibold shadow-lg shadow-red-500/25"
+                                    onClick={openVideoModal}
+                                >
+                                    <Video className="w-3 h-3 lg:w-4 lg:h-4 mr-2" />
+                                    Ver Vídeo
+                                </Button>
+                            )}
+
                             {project.githubUrl && (
                                 <Button
                                     size="sm"
@@ -128,9 +152,9 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                                     className="project-card-enhanced p-3 lg:p-4 text-center group cursor-pointer"
                                     style={{animationDelay: `${index * 100}ms`}}
                                 >
-                      <span className="text-gray-300 font-medium text-xs lg:text-sm group-hover:text-blue-400 transition-colors duration-300">
-                        {tech}
-                      </span>
+                                    <span className="text-gray-300 font-medium text-xs lg:text-sm group-hover:text-blue-400 transition-colors duration-300">
+                                        {tech}
+                                    </span>
                                 </div>
                             ))}
                         </div>
@@ -155,8 +179,8 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                                         >
                                             <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0 animate-pulse" />
                                             <span className="text-gray-300 text-sm lg:text-base group-hover:text-white transition-colors duration-300">
-                              {feature}
-                            </span>
+                                                {feature}
+                                            </span>
                                         </div>
                                     ))}
                                 </div>
@@ -183,8 +207,8 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                                         >
                                             <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0 animate-pulse" />
                                             <span className="text-gray-300 text-sm lg:text-base group-hover:text-white transition-colors duration-300">
-                              {challenge}
-                            </span>
+                                                {challenge}
+                                            </span>
                                         </div>
                                     ))}
                                 </div>
@@ -211,6 +235,19 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                                         Demonstração ao vivo
                                     </Button>
                                 )}
+
+                                {project.videoUrl && videoId && (
+                                    <Button
+                                        variant="outline"
+                                        size="sm"
+                                        className="border-2 border-red-600/50 text-red-400 hover:bg-red-600/20 hover:border-red-500 text-xs lg:text-sm bg-transparent rounded-xl font-semibold transition-all duration-300 hover:scale-105 steam-glow group"
+                                        onClick={openVideoModal}
+                                    >
+                                        <Video className="w-3 h-3 lg:w-4 lg:h-4 mr-2 transition-transform duration-300 group-hover:rotate-12" />
+                                        Vídeo demonstração
+                                    </Button>
+                                )}
+
                                 {project.githubUrl && (
                                     <Button
                                         variant="outline"
@@ -227,6 +264,16 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                     </section>
                 </div>
             </div>
+
+            {/* YouTube Modal */}
+            {project.videoUrl && videoId && (
+                <YouTubeModal
+                    isOpen={isVideoModalOpen}
+                    onClose={() => setIsVideoModalOpen(false)}
+                    videoId={videoId}
+                    title={`${project.title} - Demonstração`}
+                />
+            )}
         </div>
     )
 }

@@ -8,6 +8,7 @@ export const projects = [
     category: 'fullstack',
     technologies: ['React.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'Springboot', 'Tailwind CSS', 'SpringSecurity', 'Java'],
     githubUrl: 'https://github.com/DevMiguelDiniz/pmg-es-2024-2-ti2-3687100-gnosi',
+    videoUrl: 'https://www.youtube.com/watch?v=dG2RQ9XAAqE',
     liveUrl: '',
     featured: true,
     date: 'Dezembro 2024',
@@ -31,6 +32,7 @@ export const projects = [
     technologies: ['Next.js', 'Node.js', 'TypeScript', 'PostgreSQL', 'Tailwind CSS', 'Nest.JS'],
     featured: true,
     githubUrl: 'https://github.com/DevMiguelDiniz/pmg-es-2025-1-ti3-9577100-fabiana-moveis.git',
+      videoUrl: 'https://www.youtube.com/watch?v=4R1hQCg9AQ8',
     liveUrl: '',
     date: 'Julho 2025',
     features: [

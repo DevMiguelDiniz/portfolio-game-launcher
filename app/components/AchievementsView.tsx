@@ -19,14 +19,12 @@ import { useLanguage } from "@/hooks/use-language"
 
 export default function AchievementsView() {
     const { t } = useLanguage()
-
-    // Calculate statistics from projects
+    
     const totalProjects = projects.length
     const featuredProjects = projects.filter((p) => p.featured).length
     const allTechnologies = projects.flatMap((p) => p.technologies)
     const uniqueTechnologies = [...new Set(allTechnologies)]
 
-    // Technology usage statistics
     const technologyStats = uniqueTechnologies
         .map((tech) => {
             const usage = allTechnologies.filter((t) => t === tech).length
@@ -35,7 +33,6 @@ export default function AchievementsView() {
         })
         .sort((a, b) => b.usage - a.usage)
 
-    // Category statistics
     const categoryStats = [
         {
             name: t('category.frontend'),

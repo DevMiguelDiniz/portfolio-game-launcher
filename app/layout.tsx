@@ -39,7 +39,7 @@ const jetBrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-    title: 'Portfolio Steam - Desenvolvedor Full Stack',
+    title: 'Miguel Diniz - Desenvolvedor Full Stack',
     description: 'Portfolio profissional minimalista inspirado na Steam, showcasing projetos de desenvolvimento web, mobile e full stack com design escuro e elegante.',
     keywords: 'desenvolvedor, full stack, react, nextjs, nodejs, portfolio, web development, steam, minimalista',
     authors: [{ name: 'Miguel Diniz' }],
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
         url: 'https://seu-portfolio.vercel.app',
         title: 'Portfolio Steam - Desenvolvedor Full Stack',
         description: 'Portfolio profissional minimalista inspirado na Steam com design escuro e elegante.',
-        siteName: 'Portfolio Steam',
+        siteName: 'MiguelDiniz',
     },
     twitter: {
         card: 'summary_large_image',

@@ -6,6 +6,8 @@ Um portfólio pessoal que simula uma plataforma de jogos, inspirado na interface
 
 Este portfólio foi construído utilizando um design inspirado em plataformas de jogos, com uma interface escura, navegação intuitiva por abas e uma apresentação visual imersiva dos projetos e conquistas.
 
+## Link do Projeto: https://portfolio-game-launcher.vercel.app/
+
 ## ✨ Características Principais
 
 - **Interface Estilo Game Launcher**: Visual inspirado na Steam com tema escuro e elementos de interface de jogos
@@ -116,7 +118,7 @@ O design do projeto foi desenvolvido no Figma, incluindo wireframes e protótipo
 
 ## 🔍 Preview
 
-![Preview do Portfolio Game Launcher](/public/preview.png)
+![Preview do Portfolio Game Launcher](https://portfolio-game-launcher.vercel.app/)
 
 ## 🤝 Contribuição
 

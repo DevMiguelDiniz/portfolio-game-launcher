@@ -121,7 +121,7 @@ export default function ProfileView() {
                             <div className="absolute inset-1 bg-gray-900 rounded-2xl"></div>
                             <div className="relative w-36 h-36 lg:w-40 lg:h-40 rounded-2xl overflow-hidden border-4 border-gray-700/50 shadow-2xl shadow-blue-500/25 transition-transform duration-300 group-hover:scale-105">
                                 <Image
-                                    src="/placeholder.svg?height=160&width=160&text=Miguel+Diniz"
+                                    src="/Miguel.jpg"
                                     alt="Profile"
                                     width={160}
                                     height={160}

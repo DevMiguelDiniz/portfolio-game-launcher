@@ -98,8 +98,21 @@ export default function ProfileView() {
     }
 
     const handleDownloadCV = () => {
-        // Aqui você pode implementar o download do CV
-        console.log('Fazendo download do CV...')
+        const { language } = useLanguage();
+
+        const fileName = language === 'pt' ? 'Miguel_Diniz_CV_PT.pdf' : 'Miguel_Diniz_CV_EN.pdf';
+
+        const link = document.createElement('a');
+        link.href = `/CV/${fileName}`;
+        link.download = fileName;
+        link.target = '_blank';
+
+        document.body.appendChild(link);
+        link.click();
+
+        document.body.removeChild(link);
+
+        console.log(`Fazendo download do CV: ${fileName}`);
     }
 
     return (

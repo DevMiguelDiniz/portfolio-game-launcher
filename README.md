@@ -6,7 +6,7 @@ Um portfólio pessoal que simula uma plataforma de jogos, inspirado na interface
 
 Este portfólio foi construído utilizando um design inspirado em plataformas de jogos, com uma interface escura, navegação intuitiva por abas e uma apresentação visual imersiva dos projetos e conquistas.
 
-## Link do Projeto: https://portfolio-game-launcher.vercel.app/
+## Link do Projeto: https://migueldiniz.vercel.app/
 
 ## ✨ Características Principais
 

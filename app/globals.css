@@ -15,6 +15,7 @@
     --steam-muted:      #8ba0b4;
     --steam-green:      #4c6b22;
     --steam-green-text: #a4d007;
+    --steam-border-hover: #3d6080;
 }
 
 @layer base {
@@ -34,7 +35,7 @@
     background: var(--steam-border);
     border-radius: 4px;
 }
-::-webkit-scrollbar-thumb:hover { background: #3d6080; }
+::-webkit-scrollbar-thumb:hover { background: var(--steam-border-hover); }
 
 /* ─── Transição global leve ─── */
 *, *::before, *::after {
@@ -95,6 +96,7 @@
 
 /* Hover padrão Steam: leve elevação + glow azul */
 .steam-hover {
+    border: 1px solid transparent;
     transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
 }
 .steam-hover:hover {
@@ -170,7 +172,7 @@
 .rarity-common   { border-color: rgba(139, 160, 180, 0.5); }
 .rarity-rare     { border-color: rgba(26, 159, 255, 0.5); box-shadow: 0 0 12px rgba(26, 159, 255, 0.15); }
 .rarity-epic     { border-color: rgba(155, 89, 182, 0.5); box-shadow: 0 0 12px rgba(155, 89, 182, 0.15); }
-.rarity-legendary{ border-color: rgba(255, 215, 0, 0.5);  box-shadow: 0 0 12px rgba(255, 215, 0, 0.15); }
+.rarity-legendary { border-color: rgba(255, 215, 0, 0.5);  box-shadow: 0 0 12px rgba(255, 215, 0, 0.15); }
 
 /* line-clamp util */
 .line-clamp-2 {
@@ -178,4 +180,13 @@
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+}
+
+/* ─── Accessibility: reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }

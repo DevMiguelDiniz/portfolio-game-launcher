@@ -1,45 +1,37 @@
 "use client"
 
 import Image from "next/image"
-import { MapPin, Calendar, Mail, Phone, Download, Code, Database, Smartphone, Globe, Star, Briefcase, GraduationCap } from "lucide-react"
+import { MapPin, Calendar, Mail, Download, Code, Database, Smartphone, Globe, Star, Briefcase, GraduationCap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/hooks/use-language"
 
 export default function ProfileView() {
-    const { t } = useLanguage()
+    const { t, language } = useLanguage()
 
     const skills = [
         {
-            icon: <Globe className="w-6 h-6" />,
+            icon: <Globe className="w-5 h-5" />,
             title: t('skill.frontend'),
             description: "React, Next.js, TypeScript, Tailwind CSS",
             level: 95,
-            color: "from-blue-500 to-cyan-500",
-            bgColor: "bg-blue-500/10"
         },
         {
-            icon: <Database className="w-6 h-6" />,
+            icon: <Database className="w-5 h-5" />,
             title: t('skill.backend'),
             description: "Node.js, Python, PostgreSQL, MongoDB",
             level: 88,
-            color: "from-green-500 to-emerald-500",
-            bgColor: "bg-green-500/10"
         },
         {
-            icon: <Smartphone className="w-6 h-6" />,
+            icon: <Smartphone className="w-5 h-5" />,
             title: t('skill.mobile'),
             description: "React Native, Flutter, iOS, Android",
             level: 82,
-            color: "from-purple-500 to-violet-500",
-            bgColor: "bg-purple-500/10"
         },
         {
-            icon: <Code className="w-6 h-6" />,
+            icon: <Code className="w-5 h-5" />,
             title: t('skill.devops'),
             description: "Docker, AWS, Vercel, CI/CD",
             level: 75,
-            color: "from-orange-500 to-red-500",
-            bgColor: "bg-orange-500/10"
         },
     ]
 
@@ -98,8 +90,6 @@ export default function ProfileView() {
     }
 
     const handleDownloadCV = () => {
-        const { language } = useLanguage();
-
         const fileName = language === 'pt' ? 'Miguel_Diniz_CV_PT.pdf' : 'Miguel_Diniz_CV_EN.pdf';
 
         const link = document.createElement('a');
@@ -116,9 +106,9 @@ export default function ProfileView() {
     }
 
     return (
-        <div className="h-full overflow-y-auto bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950">
+        <div className="h-full overflow-y-auto" style={{ background: 'var(--steam-navy)' }}>
             {/* Hero Section */}
-            <div className="relative bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 border-b border-gray-800/50 p-6 lg:p-8 overflow-hidden">
+            <div className="relative border-b p-6 lg:p-8 overflow-hidden" style={{ background: 'var(--steam-dark)', borderColor: 'var(--steam-border)' }}>
                 {/* Background decoration */}
                 <div className="absolute inset-0 opacity-10">
                     <div className="absolute top-20 left-20 w-40 h-40 bg-blue-500 rounded-full blur-3xl animate-float"></div>
@@ -130,7 +120,7 @@ export default function ProfileView() {
                     <div className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
                         {/* Profile Image */}
                         <div className="relative group animate-bounce-in">
-                            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl animate-pulse opacity-60"></div>
+                            <div className="absolute inset-0 rounded-2xl animate-pulse opacity-60" style={{ background: 'var(--steam-blue)' }}></div>
                             <div className="absolute inset-1 bg-gray-900 rounded-2xl"></div>
                             <div className="relative w-36 h-36 lg:w-40 lg:h-40 rounded-2xl overflow-hidden border-4 border-gray-700/50 shadow-2xl shadow-blue-500/25 transition-transform duration-300 group-hover:scale-105">
                                 <Image
@@ -259,39 +249,37 @@ export default function ProfileView() {
                         <div className="grid md:grid-cols-2 gap-6">
                             {skills.map((skill, index) => (
                                 <div
-                                    key={skill.title}
-                                    className="project-card-enhanced p-6 group hover:scale-105"
-                                    style={{ animationDelay: `${index * 150}ms` }}
+                                    key={index}
+                                    className="steam-panel steam-hover p-4 lg:p-5"
                                 >
-                                    <div className="flex items-center space-x-4 mb-4">
-                                        <div className={`w-14 h-14 rounded-xl bg-gradient-to-r ${skill.color} flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12`}>
-                                            <div className="text-white">
-                                                {skill.icon}
-                                            </div>
+                                    <div className="flex items-center gap-3 mb-3">
+                                        <div
+                                            className="w-9 h-9 rounded flex items-center justify-center flex-shrink-0"
+                                            style={{ background: 'rgba(26,159,255,0.1)', color: 'var(--steam-blue)' }}
+                                        >
+                                            {skill.icon}
                                         </div>
-                                        <div className="flex-1">
-                                            <h3 className="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors duration-300">
-                                                {skill.title}
-                                            </h3>
-                                            <p className="text-gray-400 text-sm">{skill.description}</p>
+                                        <div>
+                                            <h3 className="text-sm font-semibold" style={{ color: 'var(--steam-text)' }}>{skill.title}</h3>
+                                            <p className="text-xs" style={{ color: 'var(--steam-muted)' }}>{skill.description}</p>
                                         </div>
                                     </div>
-
-                                    <div className="space-y-3">
-                                        <div className="flex justify-between items-center text-sm">
-                                            <span className="text-gray-400">{t('profile.proficiency')}</span>
-                                            <span className={`font-mono bg-gradient-to-r ${skill.color} bg-clip-text text-transparent font-bold`}>
-                                                {skill.level}%
-                                            </span>
-                                        </div>
-                                        <div className="w-full bg-gray-800/60 rounded-full h-3 overflow-hidden">
+                                    <div className="flex items-center gap-2">
+                                        <div
+                                            className="flex-1 h-1.5 rounded-full overflow-hidden"
+                                            style={{ background: 'var(--steam-border)' }}
+                                        >
                                             <div
-                                                className={`h-3 rounded-full bg-gradient-to-r ${skill.color} transition-all duration-1000 relative overflow-hidden`}
-                                                style={{ width: `${skill.level}%` }}
-                                            >
-                                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
-                                            </div>
+                                                className="h-full rounded-full"
+                                                style={{ width: `${skill.level}%`, background: 'var(--steam-blue)' }}
+                                            />
                                         </div>
+                                        <span
+                                            className="text-xs flex-shrink-0"
+                                            style={{ color: 'var(--steam-muted)', fontFamily: 'var(--font-jetbrains-mono)' }}
+                                        >
+                                            {skill.level}%
+                                        </span>
                                     </div>
                                 </div>
                             ))}

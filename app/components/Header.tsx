@@ -13,6 +13,11 @@ interface HeaderProps {
     setSidebarOpen?: (open: boolean) => void
 }
 
+const SOCIAL_LINKS = [
+    { id: 'github',   label: 'GitHub',   icon: <Github   className="w-4 h-4" />, href: 'https://github.com/DevMiguelDiniz' },
+    { id: 'linkedin', label: 'LinkedIn', icon: <Linkedin className="w-4 h-4" />, href: 'https://linkedin.com/in/miguel-diniz' },
+] as const
+
 export default function Header({ activeTab, setActiveTab, sidebarOpen, setSidebarOpen }: HeaderProps) {
     const { t } = useLanguage()
 
@@ -87,24 +92,33 @@ export default function Header({ activeTab, setActiveTab, sidebarOpen, setSideba
 
             {/* Right — Social + Language */}
             <div className="flex items-center gap-1">
-                {[
-                    { icon: <Github className="w-4 h-4" />,   action: () => window.open('https://github.com/DevMiguelDiniz', '_blank') },
-                    { icon: <Linkedin className="w-4 h-4" />, action: () => window.open('https://linkedin.com/in/miguel-diniz', '_blank') },
-                    { icon: <Mail className="w-4 h-4" />,     action: () => setActiveTab('contact') },
-                ].map((item, i) => (
+                {SOCIAL_LINKS.map((item) => (
                     <Button
-                        key={i}
+                        key={item.id}
                         variant="ghost"
                         size="icon"
+                        aria-label={item.label}
                         className="w-8 h-8 rounded transition-colors"
                         style={{ color: 'var(--steam-muted)' }}
                         onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--steam-text)')}
                         onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--steam-muted)')}
-                        onClick={item.action}
+                        onClick={() => window.open(item.href, '_blank')}
                     >
                         {item.icon}
                     </Button>
                 ))}
+                <Button
+                    variant="ghost"
+                    size="icon"
+                    aria-label="Contato"
+                    className="w-8 h-8 rounded transition-colors"
+                    style={{ color: 'var(--steam-muted)' }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--steam-text)')}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--steam-muted)')}
+                    onClick={() => setActiveTab('contact')}
+                >
+                    <Mail className="w-4 h-4" />
+                </Button>
                 <div className="w-px h-5 mx-1" style={{ background: 'var(--steam-border)' }} />
                 <LanguageSwitcher />
             </div>

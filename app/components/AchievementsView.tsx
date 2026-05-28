@@ -38,43 +38,43 @@ export default function AchievementsView() {
             name: t('category.frontend'),
             count: projects.filter((p) => p.category === "frontend").length,
             icon: <Globe className="w-4 h-4 lg:w-5 lg:h-5" />,
-            color: "from-blue-500 to-cyan-500",
-            bgColor: "bg-blue-500/20",
+            color: 'var(--steam-blue)',
+            bgColor: 'rgba(26,159,255,0.1)',
         },
         {
             name: t('category.backend'),
             count: projects.filter((p) => p.category === "backend").length,
             icon: <Database className="w-4 h-4 lg:w-5 lg:h-5" />,
-            color: "from-green-500 to-emerald-500",
-            bgColor: "bg-green-500/20",
+            color: 'var(--steam-blue)',
+            bgColor: 'rgba(26,159,255,0.1)',
         },
         {
             name: t('category.mobile'),
             count: projects.filter((p) => p.category === "mobile").length,
             icon: <Smartphone className="w-4 h-4 lg:w-5 lg:h-5" />,
-            color: "from-purple-500 to-violet-500",
-            bgColor: "bg-purple-500/20",
+            color: 'var(--steam-blue)',
+            bgColor: 'rgba(26,159,255,0.1)',
         },
         {
             name: t('category.fullstack'),
             count: projects.filter((p) => p.category === "fullstack").length,
             icon: <Code className="w-4 h-4 lg:w-5 lg:h-5" />,
-            color: "from-orange-500 to-red-500",
-            bgColor: "bg-orange-500/20",
+            color: 'var(--steam-blue)',
+            bgColor: 'rgba(26,159,255,0.1)',
         },
         {
             name: t('category.web'),
             count: projects.filter((p) => p.category === "web").length,
             icon: <Globe className="w-4 h-4 lg:w-5 lg:h-5" />,
-            color: "from-cyan-500 to-teal-500",
-            bgColor: "bg-cyan-500/20",
+            color: 'var(--steam-blue)',
+            bgColor: 'rgba(26,159,255,0.1)',
         },
         {
             name: t('category.desktop'),
             count: projects.filter((p) => p.category === "desktop").length,
             icon: <Code className="w-4 h-4 lg:w-5 lg:h-5" />,
-            color: "from-yellow-500 to-amber-500",
-            bgColor: "bg-yellow-500/20",
+            color: 'var(--steam-blue)',
+            bgColor: 'rgba(26,159,255,0.1)',
         },
     ].filter((cat) => cat.count > 0)
 
@@ -181,9 +181,9 @@ export default function AchievementsView() {
     }
 
     return (
-        <div className="h-full overflow-y-auto bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950">
+        <div className="h-full overflow-y-auto" style={{ background: 'var(--steam-navy)' }}>
             {/* Hero Section */}
-            <div className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 border-b border-gray-800/50 p-4 lg:p-8 relative overflow-hidden">
+            <div className="border-b p-4 lg:p-8 relative overflow-hidden" style={{ background: 'var(--steam-dark)', borderColor: 'var(--steam-border)' }}>
                 {/* Background decoration */}
                 <div className="absolute inset-0 opacity-10">
                     <div className="absolute top-20 left-20 w-40 h-40 bg-yellow-500 rounded-full blur-3xl animate-float"></div>
@@ -402,8 +402,8 @@ export default function AchievementsView() {
                                     style={{ animationDelay: `${index * 150}ms` }}
                                 >
                                     <div className="flex items-center space-x-4 mb-4">
-                                        <div className={`w-12 h-12 lg:w-14 lg:h-14 rounded-xl bg-gradient-to-r ${category.color} flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12`}>
-                                            <div className="text-white">
+                                        <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-xl flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12" style={{ background: category.bgColor, color: category.color }}>
+                                            <div>
                                                 {category.icon}
                                             </div>
                                         </div>
@@ -414,13 +414,13 @@ export default function AchievementsView() {
                                             <p className="text-gray-400 text-xs lg:text-sm">{t('achievements.projectsDeveloped')}</p>
                                         </div>
                                     </div>
-                                    <div className={`text-3xl lg:text-4xl font-bold bg-gradient-to-r ${category.color} bg-clip-text text-transparent mb-3`}>
+                                    <div className="text-3xl lg:text-4xl font-bold mb-3" style={{ color: category.color }}>
                                         {category.count}
                                     </div>
                                     <div className="w-full bg-gray-800/60 rounded-full h-3 overflow-hidden mb-2">
                                         <div
-                                            className={`h-3 rounded-full bg-gradient-to-r ${category.color} transition-all duration-1000 relative overflow-hidden`}
-                                            style={{ width: `${Math.round((category.count / totalProjects) * 100)}%` }}
+                                            className="h-3 rounded-full transition-all duration-1000 relative overflow-hidden"
+                                            style={{ background: category.color, width: `${Math.round((category.count / totalProjects) * 100)}%` }}
                                         >
                                             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
                                         </div>

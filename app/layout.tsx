@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import { LanguageProvider } from '@/hooks/use-language'
@@ -16,6 +16,11 @@ const jetBrainsMono = JetBrains_Mono({
     variable: '--font-jetbrains-mono',
     display: 'swap',
 })
+
+export const viewport: Viewport = {
+    width: 'device-width',
+    initialScale: 1,
+}
 
 export const metadata: Metadata = {
     title: 'Miguel Diniz - Desenvolvedor Full Stack',
@@ -38,7 +43,6 @@ export const metadata: Metadata = {
         creator: '@DevMiguelDiniz',
     },
     robots: { index: true, follow: true },
-    viewport: 'width=device-width, initial-scale=1',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -1,7 +1,7 @@
 "use client"
 
-import React from "react"
 import { useState } from "react"
+import type { ReactNode } from "react"
 import Image from "next/image"
 import { ExternalLink, Github, Calendar, Code, Star, Play, Video } from "lucide-react"
 import { YouTubeModal, useYouTubeVideoId } from "@/components/ui/youtube-modal"
@@ -27,7 +27,7 @@ interface ProjectDetailProps {
     project: Project
 }
 
-function SectionHeader({ icon, title }: { icon: React.ReactNode; title: string }) {
+function SectionHeader({ icon, title }: { icon: ReactNode; title: string }) {
     return (
         <h2 className="text-base lg:text-lg font-semibold mb-3 flex items-center gap-2" style={{ color: 'var(--steam-text)' }}>
             {icon}
@@ -89,6 +89,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                     <div className="flex flex-wrap gap-2">
                         {project.liveUrl && (
                             <button
+                                type="button"
                                 className="steam-btn-primary flex items-center gap-2 text-sm"
                                 onClick={() => window.open(project.liveUrl, "_blank")}
                             >
@@ -98,6 +99,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                         )}
                         {project.videoUrl && videoId && (
                             <button
+                                type="button"
                                 className="steam-btn-primary flex items-center gap-2 text-sm"
                                 onClick={() => setIsVideoModalOpen(true)}
                             >
@@ -107,6 +109,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                         )}
                         {project.githubUrl && (
                             <button
+                                type="button"
                                 className="steam-btn-secondary flex items-center gap-2 text-sm"
                                 onClick={() => window.open(project.githubUrl, "_blank")}
                             >
@@ -163,8 +166,8 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                             />
                             <div className="steam-panel p-5 lg:p-6">
                                 <div className="grid sm:grid-cols-2 gap-3">
-                                    {project.features.map((feature, i) => (
-                                        <div key={i} className="flex items-start gap-2.5">
+                                    {project.features.map((feature) => (
+                                        <div key={feature} className="flex items-start gap-2.5">
                                             <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ background: 'var(--steam-blue)' }} />
                                             <span className="text-sm leading-relaxed" style={{ color: 'var(--steam-text)' }}>{feature}</span>
                                         </div>
@@ -183,8 +186,8 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                             />
                             <div className="steam-panel p-5 lg:p-6">
                                 <div className="space-y-3">
-                                    {project.challenges.map((challenge, i) => (
-                                        <div key={i} className="flex items-start gap-2.5">
+                                    {project.challenges.map((challenge) => (
+                                        <div key={challenge} className="flex items-start gap-2.5">
                                             <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ background: 'var(--steam-muted)' }} />
                                             <span className="text-sm leading-relaxed" style={{ color: 'var(--steam-text)' }}>{challenge}</span>
                                         </div>
@@ -205,6 +208,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                                 <div className="flex flex-wrap gap-3">
                                     {project.liveUrl && (
                                         <button
+                                            type="button"
                                             className="steam-btn-primary flex items-center gap-2 text-sm"
                                             onClick={() => window.open(project.liveUrl, "_blank")}
                                         >
@@ -214,6 +218,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                                     )}
                                     {project.videoUrl && videoId && (
                                         <button
+                                            type="button"
                                             className="steam-btn-primary flex items-center gap-2 text-sm"
                                             onClick={() => setIsVideoModalOpen(true)}
                                         >
@@ -223,6 +228,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                                     )}
                                     {project.githubUrl && (
                                         <button
+                                            type="button"
                                             className="steam-btn-secondary flex items-center gap-2 text-sm"
                                             onClick={() => window.open(project.githubUrl, "_blank")}
                                         >

@@ -10,9 +10,9 @@ export default function ProjectsWelcome() {
     const totalTechnologies = [...new Set(projects.flatMap((p) => p.technologies))].length
 
     const stats = [
-        { icon: <Code className="w-5 h-5" />,          value: projects.length,    label: 'Projetos totais', color: 'var(--steam-text)' },
-        { icon: <Star className="w-5 h-5 fill-current" />, value: featuredCount,   label: 'Em destaque',     color: 'var(--steam-blue)' },
-        { icon: <TrendingUp className="w-5 h-5" />,     value: totalTechnologies,  label: 'Tecnologias',     color: 'var(--steam-text)' },
+        { icon: <Code className="w-5 h-5" />,          value: projects.length,    label: t('projects.welcome.totalProjects'), color: 'var(--steam-text)' },
+        { icon: <Star className="w-5 h-5 fill-current" />, value: featuredCount,   label: t('projects.welcome.featuredProjects'), color: 'var(--steam-blue)' },
+        { icon: <TrendingUp className="w-5 h-5" />,     value: totalTechnologies,  label: t('projects.welcome.differentTechnologies'), color: 'var(--steam-text)' },
     ]
 
     return (
@@ -26,12 +26,11 @@ export default function ProjectsWelcome() {
                 </div>
 
                 <h1 className="text-2xl lg:text-3xl font-bold mb-3" style={{ color: 'var(--steam-text)' }}>
-                    Bem-vindo à{' '}
-                    <span style={{ color: 'var(--steam-blue)' }}>Biblioteca</span>
+                    {t('projects.welcome.title')}
                 </h1>
 
                 <p className="text-sm lg:text-base mb-8 px-4" style={{ color: 'var(--steam-muted)' }}>
-                    Selecione um projeto na barra lateral para explorar detalhes, tecnologias utilizadas, desafios superados e ver demonstrações ao vivo.
+                    {t('projects.welcome.subtitle')}
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
@@ -55,7 +54,7 @@ export default function ProjectsWelcome() {
                 </div>
 
                 <p className="text-xs" style={{ color: 'var(--steam-muted)' }}>
-                    💡 Use a busca e filtros na barra lateral para encontrar projetos específicos
+                    {t('projects.welcome.tip')}
                 </p>
             </div>
         </div>

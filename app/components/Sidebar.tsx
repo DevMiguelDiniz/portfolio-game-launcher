@@ -19,11 +19,11 @@ export default function Sidebar({ selectedProject, setSelectedProject, onProject
 
     const categories = [
         { value: "all",       label: t('sidebar.allCategories') },
-        { value: "web",       label: t('sidebar.web') },
-        { value: "mobile",    label: t('sidebar.mobile') },
-        { value: "fullstack", label: t('sidebar.fullstack') },
-        { value: "frontend",  label: t('sidebar.frontend') },
-        { value: "desktop",   label: t('sidebar.desktop') },
+        { value: "web",       label: t('category.web') },
+        { value: "mobile",    label: t('category.mobile') },
+        { value: "fullstack", label: t('category.fullstack') },
+        { value: "frontend",  label: t('category.frontend') },
+        { value: "desktop",   label: t('category.desktop') },
     ]
 
     const filteredProjects = projects.filter((p) => {
@@ -115,11 +115,12 @@ export default function Sidebar({ selectedProject, setSelectedProject, onProject
                                     className={`w-full flex items-center gap-3 px-2 py-2.5 rounded text-left transition-colors ${
                                         isActive ? 'steam-sidebar-active' : ''
                                     }`}
+                                    style={{ borderLeft: isActive ? undefined : '2px solid transparent' }}
                                     onMouseEnter={(e) => {
                                         if (!isActive) e.currentTarget.style.background = 'rgba(42,71,94,0.2)'
                                     }}
                                     onMouseLeave={(e) => {
-                                        if (!isActive) e.currentTarget.style.background = ''
+                                        e.currentTarget.style.background = ''
                                     }}
                                 >
                                     {/* Thumbnail */}

@@ -77,7 +77,7 @@ export default function ContactView() {
                         {/* Contact Info */}
                         <div className="space-y-6">
                             <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6 lg:mb-8 flex items-center">
-                                <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg mr-3"></div>
+                                <div className="w-8 h-8 rounded-lg mr-3" style={{ background: 'var(--steam-blue)' }}></div>
                                 {t('contact.letsTalk')}
                             </h2>
 
@@ -108,8 +108,7 @@ export default function ContactView() {
                                 ].map((contact, index) => (
                                     <div
                                         key={index}
-                                        className="steam-panel flex items-center space-x-4 p-4"
-                                        style={{ animationDelay: contact.delay }}
+                                        className="steam-panel steam-hover group flex items-center space-x-4 p-4"
                                     >
                                         <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-xl flex items-center justify-center" style={{ background: 'rgba(26,159,255,0.1)', color: 'var(--steam-blue)' }}>
                                             {contact.icon}
@@ -126,10 +125,10 @@ export default function ContactView() {
                             </div>
 
                             {/* Availability */}
-                            <div className="bg-gradient-to-br from-gray-900/80 to-gray-800/60 backdrop-blur-sm rounded-2xl p-6 border border-gray-800/50 hover:border-green-500/30 transition-all duration-300 steam-glow">
+                            <div className="steam-panel steam-hover group p-6">
                                 <div className="flex items-center space-x-3 mb-4">
-                                    <div className="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center animate-pulse">
-                                        <Clock className="w-5 h-5 " />
+                                    <div className="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center">
+                                        <Clock className="w-5 h-5" />
                                     </div>
                                     <h3 className="text-white font-semibold text-base lg:text-lg">{t('contact.availability')}</h3>
                                 </div>
@@ -152,7 +151,7 @@ export default function ContactView() {
                         {/* Contact Form */}
                         <div className="steam-panel p-6 lg:p-8">
                             <h3 className="text-xl lg:text-2xl font-bold text-white mb-6 flex items-center">
-                                <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg mr-3"></div>
+                                <div className="w-6 h-6 rounded-lg mr-3" style={{ background: 'var(--steam-blue)' }}></div>
                                 {t('contact.sendMessage')}
                             </h3>
 
@@ -172,7 +171,7 @@ export default function ContactView() {
                                     <AlertCircle className="w-5 h-5 text-red-400" />
                                     <div className="flex-1">
                                         <span className="text-red-400 text-sm lg:text-base font-medium block">
-                                            Erro ao enviar mensagem
+                                            {t('contact.error')}
                                         </span>
                                         <span className="text-red-300 text-xs lg:text-sm">
                                             {error}

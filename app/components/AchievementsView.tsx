@@ -238,7 +238,7 @@ export default function AchievementsView() {
                                 return (
                                     <div
                                         key={achievement.id}
-                                        className={`steam-panel relative p-4 lg:p-6 border-2 transition-all duration-400 group ${
+                                        className={`steam-panel relative p-4 lg:p-6 transition-all duration-300 group ${
                                             achievement.unlocked
                                                 ? `rarity-${achievement.rarity} hover:scale-105 hover:-translate-y-2`
                                                 : "rarity-common opacity-50"

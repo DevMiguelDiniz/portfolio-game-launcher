@@ -145,52 +145,20 @@ export default function AchievementsView() {
     const unlockedAchievements = achievements.filter((a) => a.unlocked)
     const completionRate = Math.round((unlockedAchievements.length / achievements.length) * 100)
 
-    const getRarityStyles = (rarity: string) => {
+    const getRarityBg = (rarity: string) => {
         switch (rarity) {
-            case "common":
-                return {
-                    border: "border-gray-500/50",
-                    glow: "shadow-gray-500/20",
-                    bg: "from-gray-500/10 to-gray-600/10"
-                }
-            case "rare":
-                return {
-                    border: "border-blue-500/50",
-                    glow: "shadow-blue-500/30",
-                    bg: "from-blue-500/10 to-blue-600/10"
-                }
-            case "epic":
-                return {
-                    border: "border-purple-500/50",
-                    glow: "shadow-purple-500/30",
-                    bg: "from-purple-500/10 to-purple-600/10"
-                }
-            case "legendary":
-                return {
-                    border: "border-yellow-500/50",
-                    glow: "shadow-yellow-500/40 animate-glow-pulse",
-                    bg: "from-yellow-500/10 to-yellow-600/10"
-                }
-            default:
-                return {
-                    border: "border-gray-500/50",
-                    glow: "shadow-gray-500/20",
-                    bg: "from-gray-500/10 to-gray-600/10"
-                }
+            case "rare":      return "from-blue-500/10 to-blue-600/10"
+            case "epic":      return "from-purple-500/10 to-purple-600/10"
+            case "legendary": return "from-yellow-500/10 to-yellow-600/10"
+            default:          return "from-gray-500/10 to-gray-600/10"
         }
     }
 
     return (
         <div className="h-full overflow-y-auto" style={{ background: 'var(--steam-navy)' }}>
             {/* Hero Section */}
-            <div className="border-b p-4 lg:p-8 relative overflow-hidden" style={{ background: 'var(--steam-dark)', borderColor: 'var(--steam-border)' }}>
-                {/* Background decoration */}
-                <div className="absolute inset-0 opacity-10">
-                    <div className="absolute top-20 left-20 w-40 h-40 bg-yellow-500 rounded-full blur-3xl animate-float"></div>
-                    <div className="absolute bottom-20 right-20 w-32 h-32 bg-purple-500 rounded-full blur-3xl animate-float-delayed"></div>
-                </div>
-
-                <div className="max-w-6xl mx-auto relative z-10">
+            <div className="border-b p-4 lg:p-8" style={{ background: 'var(--steam-dark)', borderColor: 'var(--steam-border)' }}>
+                <div className="max-w-6xl mx-auto">
                     <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6 mb-8">
                         <div className="w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-2xl shadow-yellow-500/25 animate-bounce-in">
                             <Trophy className="w-8 h-8 lg:w-10 lg:h-10 text-white" />
@@ -235,7 +203,7 @@ export default function AchievementsView() {
                         ].map((stat, index) => (
                             <div
                                 key={index}
-                                className="project-card-enhanced p-4 lg:p-6 group hover:scale-105"
+                                className="steam-panel steam-hover p-4 lg:p-6 group hover:scale-105"
                                 style={{ animationDelay: `${index * 150}ms` }}
                             >
                                 <div className="flex items-center justify-between mb-3">
@@ -266,14 +234,14 @@ export default function AchievementsView() {
                         </h2>
                         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
                             {achievements.map((achievement, index) => {
-                                const styles = getRarityStyles(achievement.rarity)
+                                const rarityBg = getRarityBg(achievement.rarity)
                                 return (
                                     <div
                                         key={achievement.id}
-                                        className={`achievement-card p-4 lg:p-6 border-2 transition-all duration-400 group ${
+                                        className={`steam-panel relative p-4 lg:p-6 border-2 transition-all duration-400 group ${
                                             achievement.unlocked
-                                                ? `${styles.border} ${styles.glow} hover:scale-105 hover:-translate-y-2`
-                                                : "border-gray-700/30 opacity-50"
+                                                ? `rarity-${achievement.rarity} hover:scale-105 hover:-translate-y-2`
+                                                : "rarity-common opacity-50"
                                         }`}
                                         style={{ animationDelay: `${index * 100}ms` }}
                                     >
@@ -327,7 +295,7 @@ export default function AchievementsView() {
                                         {/* Unlock effect */}
                                         {achievement.unlocked && (
                                             <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                                <div className={`absolute inset-0 bg-gradient-to-r ${styles.bg} rounded-xl`}></div>
+                                                <div className={`absolute inset-0 bg-gradient-to-r ${rarityBg} rounded-xl`}></div>
                                             </div>
                                         )}
                                     </div>
@@ -344,7 +312,7 @@ export default function AchievementsView() {
                             </div>
                             {t('achievements.techStats')}
                         </h2>
-                        <div className="project-card-enhanced p-6 lg:p-8">
+                        <div className="steam-panel steam-hover p-6 lg:p-8">
                             <div className="grid gap-4 lg:gap-6">
                                 {technologyStats.slice(0, 10).map((tech, index) => (
                                     <div
@@ -372,11 +340,9 @@ export default function AchievementsView() {
                                                 </div>
                                                 <div className="w-full bg-gray-800/60 rounded-full h-3 overflow-hidden">
                                                     <div
-                                                        className="h-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 transition-all duration-1000 relative overflow-hidden"
+                                                        className="h-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 transition-all duration-1000"
                                                         style={{ width: `${tech.percentage}%` }}
-                                                    >
-                                                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
-                                                    </div>
+                                                    />
                                                 </div>
                                             </div>
                                         </div>
@@ -398,7 +364,7 @@ export default function AchievementsView() {
                             {categoryStats.map((category, index) => (
                                 <div
                                     key={category.name}
-                                    className="project-card-enhanced p-6 group hover:scale-105"
+                                    className="steam-panel steam-hover p-6 group hover:scale-105"
                                     style={{ animationDelay: `${index * 150}ms` }}
                                 >
                                     <div className="flex items-center space-x-4 mb-4">
@@ -419,11 +385,9 @@ export default function AchievementsView() {
                                     </div>
                                     <div className="w-full bg-gray-800/60 rounded-full h-3 overflow-hidden mb-2">
                                         <div
-                                            className="h-3 rounded-full transition-all duration-1000 relative overflow-hidden"
+                                            className="h-3 rounded-full transition-all duration-1000"
                                             style={{ background: category.color, width: `${Math.round((category.count / totalProjects) * 100)}%` }}
-                                        >
-                                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
-                                        </div>
+                                        />
                                     </div>
                                     <div className="text-gray-400 text-xs lg:text-sm">
                                         {Math.round((category.count / totalProjects) * 100)}% {t('achievements.totalOf')}
@@ -435,7 +399,7 @@ export default function AchievementsView() {
 
                     {/* Progress Summary */}
                     <section className="animate-fade-in">
-                        <div className="project-card-enhanced p-8 lg:p-10 text-center">
+                        <div className="steam-panel steam-hover p-8 lg:p-10 text-center">
                             <h2 className="text-2xl lg:text-3xl font-bold text-white mb-8 flex items-center justify-center">
                                 <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl mr-3 flex items-center justify-center">
                                     <Award className="w-5 h-5 text-white" />
@@ -479,11 +443,9 @@ export default function AchievementsView() {
                                 </div>
                                 <div className="w-full bg-gray-800/60 rounded-full h-4 overflow-hidden">
                                     <div
-                                        className="h-4 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 transition-all duration-1000 relative overflow-hidden"
+                                        className="h-4 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 transition-all duration-1000"
                                         style={{ width: `${completionRate}%` }}
-                                    >
-                                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer"></div>
-                                    </div>
+                                    />
                                 </div>
                             </div>
                         </div>

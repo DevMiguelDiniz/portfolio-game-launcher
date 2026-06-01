@@ -59,7 +59,7 @@ export default function Header({ activeTab, setActiveTab, sidebarOpen, setSideba
                             Portfolio
                         </span>
                         <div className="text-xs font-mono" style={{ color: 'var(--steam-muted)' }}>
-                            Steam Edition
+                            Miguel Diniz
                         </div>
                     </div>
                 </div>

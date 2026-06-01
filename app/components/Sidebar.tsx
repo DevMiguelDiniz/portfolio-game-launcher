@@ -49,17 +49,17 @@ export default function Sidebar({ selectedProject, setSelectedProject, onProject
     return (
         <aside
             className="w-80 sm:w-72 lg:w-80 flex flex-col h-full border-r"
-            style={{ background: 'var(--steam-panel)', borderColor: 'var(--steam-border)' }}
+            style={{ background: 'var(--amoled-panel)', borderColor: 'var(--amoled-border)' }}
         >
             {/* Header */}
-            <div className="p-4 border-b" style={{ borderColor: 'var(--steam-border)' }}>
+            <div className="p-4 border-b" style={{ borderColor: 'var(--amoled-border)' }}>
                 <h2
                     className="text-xs font-semibold uppercase tracking-widest mb-4 flex items-center gap-2"
-                    style={{ color: 'var(--steam-muted)' }}
+                    style={{ color: 'var(--amoled-muted)' }}
                 >
                     <div
                         className="w-2 h-2 rounded-full"
-                        style={{ background: 'var(--steam-blue)' }}
+                        style={{ background: 'var(--amoled-gold)' }}
                     />
                     {t('sidebar.library')}
                 </h2>
@@ -68,7 +68,7 @@ export default function Sidebar({ selectedProject, setSelectedProject, onProject
                 <div className="relative mb-3">
                     <Search
                         className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5"
-                        style={{ color: 'var(--steam-muted)' }}
+                        style={{ color: 'var(--amoled-muted)' }}
                     />
                     <input
                         placeholder={t('sidebar.searchPlaceholder')}
@@ -80,14 +80,14 @@ export default function Sidebar({ selectedProject, setSelectedProject, onProject
 
                 {/* Filter */}
                 <div className="flex items-center gap-2">
-                    <Filter className="w-3.5 h-3.5 flex-shrink-0" style={{ color: 'var(--steam-muted)' }} />
+                    <Filter className="w-3.5 h-3.5 flex-shrink-0" style={{ color: 'var(--amoled-muted)' }} />
                     <select
                         value={categoryFilter}
                         onChange={(e) => setCategoryFilter(e.target.value)}
                         className="steam-input flex-1 px-2 py-1.5 text-sm"
                     >
                         {categories.map((c) => (
-                            <option key={c.value} value={c.value} style={{ background: 'var(--steam-panel)' }}>
+                            <option key={c.value} value={c.value} style={{ background: 'var(--amoled-panel)' }}>
                                 {c.label}
                             </option>
                         ))}
@@ -100,7 +100,7 @@ export default function Sidebar({ selectedProject, setSelectedProject, onProject
                 <div className="p-2">
                     <div
                         className="text-xs uppercase tracking-wider font-medium mb-2 px-2"
-                        style={{ color: 'var(--steam-muted)' }}
+                        style={{ color: 'var(--amoled-muted)' }}
                     >
                         {filteredProjects.length} {t('sidebar.projectsCount')}
                     </div>
@@ -126,7 +126,7 @@ export default function Sidebar({ selectedProject, setSelectedProject, onProject
                                     {/* Thumbnail */}
                                     <div
                                         className="w-10 h-10 rounded overflow-hidden flex-shrink-0"
-                                        style={{ border: `1px solid var(--steam-border)` }}
+                                        style={{ border: `1px solid var(--amoled-border)` }}
                                     >
                                         <Image
                                             src={project.image || "/placeholder.svg"}
@@ -142,18 +142,18 @@ export default function Sidebar({ selectedProject, setSelectedProject, onProject
                                         <div className="flex items-center gap-1.5 mb-0.5">
                                             <span
                                                 className="text-sm font-medium truncate"
-                                                style={{ color: isActive ? 'var(--steam-blue)' : 'var(--steam-text)' }}
+                                                style={{ color: isActive ? 'var(--amoled-gold)' : 'var(--amoled-text)' }}
                                             >
                                                 {project.title}
                                             </span>
                                             {project.featured && (
                                                 <Star
                                                     className="w-3 h-3 flex-shrink-0"
-                                                    style={{ color: 'var(--steam-green-text)', fill: 'var(--steam-green-text)' }}
+                                                    style={{ color: 'var(--amoled-green-text)', fill: 'var(--amoled-green-text)' }}
                                                 />
                                             )}
                                         </div>
-                                        <p className="text-xs truncate mb-1.5" style={{ color: 'var(--steam-muted)' }}>
+                                        <p className="text-xs truncate mb-1.5" style={{ color: 'var(--amoled-muted)' }}>
                                             {getCategoryLabel(project.category)}
                                         </p>
                                         <div className="flex items-center gap-1">
@@ -161,7 +161,7 @@ export default function Sidebar({ selectedProject, setSelectedProject, onProject
                                                 <span key={tech} className="steam-tag">{tech}</span>
                                             ))}
                                             {project.technologies.length > 2 && (
-                                                <span className="text-xs" style={{ color: 'var(--steam-muted)' }}>
+                                                <span className="text-xs" style={{ color: 'var(--amoled-muted)' }}>
                                                     +{project.technologies.length - 2}
                                                 </span>
                                             )}
@@ -175,10 +175,10 @@ export default function Sidebar({ selectedProject, setSelectedProject, onProject
             </div>
 
             {/* Stats footer */}
-            <div className="p-3 border-t" style={{ borderColor: 'var(--steam-border)', background: 'var(--steam-dark)' }}>
-                <div className="flex justify-between text-xs" style={{ color: 'var(--steam-muted)' }}>
-                    <span>{t('sidebar.total')}: <span style={{ color: 'var(--steam-text)' }}>{projects.length}</span></span>
-                    <span>{t('sidebar.featured')}: <span style={{ color: 'var(--steam-green-text)' }}>{projects.filter(p => p.featured).length}</span></span>
+            <div className="p-3 border-t" style={{ borderColor: 'var(--amoled-border)', background: 'var(--amoled-black)' }}>
+                <div className="flex justify-between text-xs" style={{ color: 'var(--amoled-muted)' }}>
+                    <span>{t('sidebar.total')}: <span style={{ color: 'var(--amoled-text)' }}>{projects.length}</span></span>
+                    <span>{t('sidebar.featured')}: <span style={{ color: 'var(--amoled-green-text)' }}>{projects.filter(p => p.featured).length}</span></span>
                 </div>
             </div>
         </aside>

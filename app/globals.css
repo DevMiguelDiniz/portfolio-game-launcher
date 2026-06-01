@@ -2,20 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ─── Steam Design Tokens ─── */
+/* ─── AMOLED Zen Design Tokens ─── */
 :root {
-    --steam-dark:       #171a21;
-    --steam-navy:       #1b2838;
-    --steam-panel:      #16202d;
-    --steam-border:     #2a475e;
-    --steam-blue:       #1a9fff;
-    --steam-blue-dim:   rgba(26, 159, 255, 0.15);
-    --steam-blue-border: rgba(26, 159, 255, 0.4);
-    --steam-text:       #c6d4df;
-    --steam-muted:      #8ba0b4;
-    --steam-green:      #4c6b22;
-    --steam-green-text: #a4d007;
-    --steam-border-hover: #3d6080;
+    --amoled-black:        #000000;
+    --amoled-panel:        #0d0d0d;
+    --amoled-surface:      #141414;
+    --amoled-border:       #1c1c1c;
+    --amoled-gold:         #c9a52a;
+    --amoled-gold-dim:     rgba(201, 165, 42, 0.12);
+    --amoled-gold-border:  rgba(201, 165, 42, 0.35);
+    --amoled-text:         #f0f0f0;
+    --amoled-muted:        #606060;
+    --amoled-green:        #4c6b22;
+    --amoled-green-text:   #a4d007;
+    --amoled-border-hover: #2a2a2a;
 }
 
 @layer base {
@@ -23,19 +23,19 @@
         @apply border-border;
     }
     body {
-        background-color: var(--steam-navy);
-        color: var(--steam-text);
+        background-color: var(--amoled-black);
+        color: var(--amoled-text);
     }
 }
 
 /* ─── Scrollbar ─── */
 ::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: var(--steam-dark); }
+::-webkit-scrollbar-track { background: var(--amoled-black); }
 ::-webkit-scrollbar-thumb {
-    background: var(--steam-border);
+    background: var(--amoled-border);
     border-radius: 4px;
 }
-::-webkit-scrollbar-thumb:hover { background: var(--steam-border-hover); }
+::-webkit-scrollbar-thumb:hover { background: var(--amoled-border-hover); }
 
 /* ─── Transição global leve ─── */
 *, *::before, *::after {
@@ -44,7 +44,7 @@
     transition-duration: 150ms;
 }
 
-/* ─── Animações permitidas ─── */
+/* ─── Animações (entry only — zero contínuas) ─── */
 @keyframes steam-fade-in {
     from { opacity: 0; transform: translateY(6px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -69,52 +69,27 @@
     to   { opacity: 1; transform: scale(1) translateY(0); }
 }
 
-/* SplashScreen only */
-@keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
-    50%       { transform: translateY(-15px) rotate(180deg); opacity: 1; }
-}
-@keyframes float-delayed {
-    0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.5; }
-    50%       { transform: translateY(-20px) rotate(-180deg); opacity: 0.8; }
-}
-@keyframes glow-pulse {
-    0%, 100% { box-shadow: 0 0 5px rgba(26, 159, 255, 0.4); }
-    50%       { box-shadow: 0 0 18px rgba(26, 159, 255, 0.7); }
-}
-@keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
-}
-
-.animate-float         { animation: float 4s ease-in-out infinite; }
-.animate-float-delayed { animation: float-delayed 5s ease-in-out infinite; animation-delay: 2s; }
-.animate-glow-pulse    { animation: glow-pulse 2s ease-in-out infinite; }
-.animate-blink         { animation: blink 1s infinite; }
-.animate-spin          { animation: steam-spin 1s linear infinite; }
-
-/* ─── Utility classes ─── */
-.animate-fade-in       { animation: steam-fade-in 0.3s ease-out forwards; }
-.animate-slide-in      { animation: steam-slide-in 0.35s ease-out forwards; }
+.animate-fade-in        { animation: steam-fade-in 0.3s ease-out forwards; }
+.animate-slide-in       { animation: steam-slide-in 0.35s ease-out forwards; }
 .animate-slide-in-right { animation: steam-slide-in-right 0.35s ease-out forwards; }
-.animate-bounce-in     { animation: steam-bounce-in 0.25s ease-out forwards; }
+.animate-bounce-in      { animation: steam-bounce-in 0.25s ease-out forwards; }
+.animate-spin           { animation: steam-spin 1s linear infinite; }
 
-/* Steam panel */
+/* ─── Panel AMOLED Zen: sem borda em repouso ─── */
 .steam-panel {
-    background-color: var(--steam-panel);
-    border: 1px solid var(--steam-border);
+    background-color: var(--amoled-panel);
     border-radius: 6px;
 }
 
-/* Hover padrão Steam: leve elevação + glow azul */
+/* Hover: glow dourado aparece do zero */
 .steam-hover {
     border: 1px solid transparent;
     transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
 }
 .steam-hover:hover {
     transform: translateY(-1px);
-    box-shadow: 0 0 16px var(--steam-blue-dim);
-    border-color: var(--steam-blue-border);
+    box-shadow: 0 0 16px var(--amoled-gold-dim);
+    border-color: var(--amoled-gold-border);
 }
 
 /* Tag de tecnologia */
@@ -123,73 +98,73 @@
     font-size: 0.7rem;
     padding: 2px 7px;
     border-radius: 2px;
-    background: rgba(26, 159, 255, 0.1);
-    border: 1px solid rgba(26, 159, 255, 0.3);
-    color: var(--steam-blue);
+    background: rgba(201, 165, 42, 0.08);
+    border: 1px solid rgba(201, 165, 42, 0.2);
+    color: var(--amoled-gold);
     display: inline-block;
 }
 
-/* Botão primário Steam */
+/* Botão primário — dourado com texto preto */
 .steam-btn-primary {
-    background: var(--steam-blue);
-    color: #ffffff;
-    font-weight: 600;
+    background: var(--amoled-gold);
+    color: #000000;
+    font-weight: 700;
     border-radius: 4px;
     border: none;
     padding: 6px 14px;
     transition: background 150ms ease, transform 150ms ease;
 }
 .steam-btn-primary:hover {
-    background: #2aa8ff;
+    background: #d4b030;
     transform: translateY(-1px);
 }
 .steam-btn-primary:disabled {
-    opacity: 0.6;
+    opacity: 0.5;
     cursor: not-allowed;
     transform: none;
 }
 
-/* Botão secundário Steam */
+/* Botão secundário */
 .steam-btn-secondary {
     background: transparent;
-    color: var(--steam-text);
+    color: var(--amoled-text);
     font-weight: 500;
     border-radius: 4px;
-    border: 1px solid var(--steam-border);
+    border: 1px solid var(--amoled-border);
     padding: 6px 14px;
     transition: border-color 150ms ease, color 150ms ease;
 }
 .steam-btn-secondary:hover {
-    border-color: var(--steam-blue-border);
-    color: var(--steam-blue);
+    border-color: var(--amoled-gold-border);
+    color: var(--amoled-gold);
 }
 
-/* Input Steam */
+/* Input */
 .steam-input {
-    background: #0d1520;
-    border: 1px solid var(--steam-border);
+    background: #000000;
+    border: 1px solid var(--amoled-border);
     border-radius: 4px;
-    color: var(--steam-text);
+    color: var(--amoled-text);
     transition: border-color 150ms ease, box-shadow 150ms ease;
 }
 .steam-input:focus {
     outline: none;
-    border-color: var(--steam-blue);
-    box-shadow: 0 0 0 2px rgba(26, 159, 255, 0.15);
+    border-color: var(--amoled-gold);
+    box-shadow: 0 0 0 2px var(--amoled-gold-dim);
 }
 
 /* Sidebar item ativo */
 .steam-sidebar-active {
-    background: rgba(42, 71, 94, 0.4);
-    border-left: 2px solid var(--steam-blue);
-    color: var(--steam-blue);
+    background: rgba(201, 165, 42, 0.08);
+    border-left: 2px solid var(--amoled-gold);
+    color: var(--amoled-gold);
 }
 
-/* Achievement rarity (apenas AchievementsView) */
-.rarity-common    { border-width: 2px; border-color: rgba(139, 160, 180, 0.5); }
-.rarity-rare      { border-width: 2px; border-color: rgba(26, 159, 255, 0.5);  box-shadow: 0 0 12px rgba(26, 159, 255, 0.15); }
-.rarity-epic      { border-width: 2px; border-color: rgba(155, 89, 182, 0.5);  box-shadow: 0 0 12px rgba(155, 89, 182, 0.15); }
-.rarity-legendary { border-width: 2px; border-color: rgba(255, 215, 0, 0.5);   box-shadow: 0 0 12px rgba(255, 215, 0, 0.15); }
+/* Achievement rarity — legendary = gold do sistema */
+.rarity-common    { border-width: 2px; border-color: rgba(100, 100, 100, 0.5); }
+.rarity-rare      { border-width: 2px; border-color: rgba(14, 165, 233, 0.5);  box-shadow: 0 0 12px rgba(14, 165, 233, 0.15); }
+.rarity-epic      { border-width: 2px; border-color: rgba(139, 92, 246, 0.5);  box-shadow: 0 0 12px rgba(139, 92, 246, 0.15); }
+.rarity-legendary { border-width: 2px; border-color: rgba(201, 165, 42, 0.6);  box-shadow: 0 0 12px rgba(201, 165, 42, 0.2); }
 
 /* line-clamp util */
 .line-clamp-2 {

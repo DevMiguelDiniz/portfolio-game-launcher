@@ -29,7 +29,7 @@ interface ProjectDetailProps {
 
 function SectionHeader({ icon, title }: { icon: ReactNode; title: string }) {
     return (
-        <h2 className="text-base lg:text-lg font-semibold mb-3 flex items-center gap-2" style={{ color: 'var(--steam-text)' }}>
+        <h2 className="text-base lg:text-lg font-semibold mb-3 flex items-center gap-2" style={{ color: 'var(--amoled-text)' }}>
             {icon}
             {title}
         </h2>
@@ -41,7 +41,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
     const videoId = useYouTubeVideoId(project.videoUrl || '')
 
     return (
-        <div className="h-full overflow-y-auto" style={{ background: 'var(--steam-navy)' }}>
+        <div className="h-full overflow-y-auto" style={{ background: 'var(--amoled-black)' }}>
             {/* Hero */}
             <div className="relative h-56 sm:h-72 lg:h-80 overflow-hidden">
                 <Image
@@ -52,7 +52,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                 />
                 <div
                     className="absolute inset-0"
-                    style={{ background: 'linear-gradient(to top, var(--steam-navy) 0%, rgba(27,40,56,0.6) 60%, transparent 100%)' }}
+                    style={{ background: 'linear-gradient(to top, var(--amoled-black) 0%, rgba(0,0,0,0.6) 60%, transparent 100%)' }}
                 />
 
                 {/* Overlay info */}
@@ -60,14 +60,14 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                     <div className="flex flex-wrap items-center gap-2 mb-3">
                         <span
                             className="px-2.5 py-1 text-xs font-medium uppercase tracking-wide rounded"
-                            style={{ background: 'rgba(22,32,45,0.85)', border: '1px solid var(--steam-border)', color: 'var(--steam-muted)' }}
+                            style={{ background: 'rgba(13,13,13,0.85)', border: '1px solid var(--amoled-border)', color: 'var(--amoled-muted)' }}
                         >
                             {project.category}
                         </span>
                         {project.featured && (
                             <span
                                 className="px-2.5 py-1 text-xs font-semibold rounded flex items-center gap-1"
-                                style={{ background: 'var(--steam-green)', color: 'var(--steam-green-text)' }}
+                                style={{ background: 'var(--amoled-green)', color: 'var(--amoled-green-text)' }}
                             >
                                 <Star className="w-3 h-3 fill-current" />
                                 DESTAQUE
@@ -75,12 +75,12 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                         )}
                     </div>
 
-                    <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3" style={{ color: 'var(--steam-text)' }}>
+                    <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3" style={{ color: 'var(--amoled-text)' }}>
                         {project.title}
                     </h1>
 
                     {project.date && (
-                        <div className="flex items-center gap-2 mb-4" style={{ color: 'var(--steam-muted)' }}>
+                        <div className="flex items-center gap-2 mb-4" style={{ color: 'var(--amoled-muted)' }}>
                             <Calendar className="w-4 h-4" />
                             <span className="text-sm">{project.date}</span>
                         </div>
@@ -128,11 +128,11 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                     {/* Description */}
                     <section className="animate-fade-in">
                         <SectionHeader
-                            icon={<Code className="w-4 h-4" style={{ color: 'var(--steam-blue)' }} />}
+                            icon={<Code className="w-4 h-4" style={{ color: 'var(--amoled-gold)' }} />}
                             title="Sobre este projeto"
                         />
                         <div className="steam-panel steam-hover p-5 lg:p-6">
-                            <p className="text-sm lg:text-base leading-relaxed" style={{ color: 'var(--steam-text)' }}>
+                            <p className="text-sm lg:text-base leading-relaxed" style={{ color: 'var(--amoled-text)' }}>
                                 {project.longDescription || project.description}
                             </p>
                         </div>
@@ -141,7 +141,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                     {/* Technologies */}
                     <section className="animate-slide-in">
                         <SectionHeader
-                            icon={<Code className="w-4 h-4" style={{ color: 'var(--steam-blue)' }} />}
+                            icon={<Code className="w-4 h-4" style={{ color: 'var(--amoled-gold)' }} />}
                             title="Tecnologias utilizadas"
                         />
                         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
@@ -149,7 +149,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                                 <div
                                     key={tech}
                                     className="steam-panel steam-hover p-3 text-center"
-                                    style={{ color: 'var(--steam-text)', fontSize: '0.85rem', fontFamily: 'var(--font-jetbrains-mono)' }}
+                                    style={{ color: 'var(--amoled-text)', fontSize: '0.85rem', fontFamily: 'var(--font-jetbrains-mono)' }}
                                 >
                                     {tech}
                                 </div>
@@ -161,15 +161,15 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                     {project.features && (
                         <section className="animate-slide-in">
                             <SectionHeader
-                                icon={<Star className="w-4 h-4 fill-current" style={{ color: 'var(--steam-green-text)' }} />}
+                                icon={<Star className="w-4 h-4 fill-current" style={{ color: 'var(--amoled-green-text)' }} />}
                                 title="Principais funcionalidades"
                             />
                             <div className="steam-panel p-5 lg:p-6">
                                 <div className="grid sm:grid-cols-2 gap-3">
                                     {project.features.map((feature) => (
                                         <div key={feature} className="flex items-start gap-2.5">
-                                            <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ background: 'var(--steam-blue)' }} />
-                                            <span className="text-sm leading-relaxed" style={{ color: 'var(--steam-text)' }}>{feature}</span>
+                                            <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ background: 'var(--amoled-gold)' }} />
+                                            <span className="text-sm leading-relaxed" style={{ color: 'var(--amoled-text)' }}>{feature}</span>
                                         </div>
                                     ))}
                                 </div>
@@ -181,15 +181,15 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                     {project.challenges && (
                         <section className="animate-slide-in">
                             <SectionHeader
-                                icon={<Code className="w-4 h-4" style={{ color: 'var(--steam-blue)' }} />}
+                                icon={<Code className="w-4 h-4" style={{ color: 'var(--amoled-gold)' }} />}
                                 title="Desafios superados"
                             />
                             <div className="steam-panel p-5 lg:p-6">
                                 <div className="space-y-3">
                                     {project.challenges.map((challenge) => (
                                         <div key={challenge} className="flex items-start gap-2.5">
-                                            <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ background: 'var(--steam-muted)' }} />
-                                            <span className="text-sm leading-relaxed" style={{ color: 'var(--steam-text)' }}>{challenge}</span>
+                                            <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ background: 'var(--amoled-muted)' }} />
+                                            <span className="text-sm leading-relaxed" style={{ color: 'var(--amoled-text)' }}>{challenge}</span>
                                         </div>
                                     ))}
                                 </div>
@@ -202,8 +202,8 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                         <section className="animate-fade-in">
                             <div className="steam-panel p-5 lg:p-6">
                                 <div className="flex items-center gap-2 mb-4">
-                                    <ExternalLink className="w-4 h-4" style={{ color: 'var(--steam-blue)' }} />
-                                    <h3 className="text-sm font-semibold" style={{ color: 'var(--steam-text)' }}>Links do projeto</h3>
+                                    <ExternalLink className="w-4 h-4" style={{ color: 'var(--amoled-gold)' }} />
+                                    <h3 className="text-sm font-semibold" style={{ color: 'var(--amoled-text)' }}>Links do projeto</h3>
                                 </div>
                                 <div className="flex flex-wrap gap-3">
                                     {project.liveUrl && (

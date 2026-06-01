@@ -106,9 +106,9 @@ export default function ProfileView() {
     }
 
     return (
-        <div className="h-full overflow-y-auto" style={{ background: 'var(--steam-navy)' }}>
+        <div className="h-full overflow-y-auto" style={{ background: 'var(--amoled-black)' }}>
             {/* Hero Section */}
-            <div className="relative border-b p-6 lg:p-8 overflow-hidden" style={{ background: 'var(--steam-dark)', borderColor: 'var(--steam-border)' }}>
+            <div className="relative border-b p-6 lg:p-8 overflow-hidden" style={{ background: 'var(--amoled-black)', borderColor: 'var(--amoled-border)' }}>
                 {/* Background decoration */}
                 <div className="absolute inset-0 opacity-10">
                     <div className="absolute top-20 left-20 w-40 h-40 bg-blue-500 rounded-full blur-3xl animate-float"></div>
@@ -120,7 +120,7 @@ export default function ProfileView() {
                     <div className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
                         {/* Profile Image */}
                         <div className="relative group animate-bounce-in">
-                            <div className="absolute inset-0 rounded-2xl animate-pulse opacity-60" style={{ background: 'var(--steam-blue)' }}></div>
+                            <div className="absolute inset-0 rounded-2xl opacity-40" style={{ background: 'var(--amoled-gold)' }}></div>
                             <div className="absolute inset-1 bg-gray-900 rounded-2xl"></div>
                             <div className="relative w-36 h-36 lg:w-40 lg:h-40 rounded-2xl overflow-hidden border-4 border-gray-700/50 shadow-2xl shadow-blue-500/25 transition-transform duration-300 group-hover:scale-105">
                                 <Image
@@ -255,28 +255,28 @@ export default function ProfileView() {
                                     <div className="flex items-center gap-3 mb-3">
                                         <div
                                             className="w-9 h-9 rounded flex items-center justify-center flex-shrink-0"
-                                            style={{ background: 'rgba(26,159,255,0.1)', color: 'var(--steam-blue)' }}
+                                            style={{ background: 'rgba(201,165,42,0.08)', color: 'var(--amoled-gold)' }}
                                         >
                                             {skill.icon}
                                         </div>
                                         <div>
-                                            <h3 className="text-sm font-semibold" style={{ color: 'var(--steam-text)' }}>{skill.title}</h3>
-                                            <p className="text-xs" style={{ color: 'var(--steam-muted)' }}>{skill.description}</p>
+                                            <h3 className="text-sm font-semibold" style={{ color: 'var(--amoled-text)' }}>{skill.title}</h3>
+                                            <p className="text-xs" style={{ color: 'var(--amoled-muted)' }}>{skill.description}</p>
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <div
                                             className="flex-1 h-1.5 rounded-full overflow-hidden"
-                                            style={{ background: 'var(--steam-border)' }}
+                                            style={{ background: 'var(--amoled-border)' }}
                                         >
                                             <div
                                                 className="h-full rounded-full"
-                                                style={{ width: `${skill.level}%`, background: 'var(--steam-blue)' }}
+                                                style={{ width: `${skill.level}%`, background: 'var(--amoled-gold)' }}
                                             />
                                         </div>
                                         <span
                                             className="text-xs flex-shrink-0"
-                                            style={{ color: 'var(--steam-muted)', fontFamily: 'var(--font-jetbrains-mono)' }}
+                                            style={{ color: 'var(--amoled-muted)', fontFamily: 'var(--font-jetbrains-mono)' }}
                                         >
                                             {skill.level}%
                                         </span>

@@ -31,7 +31,7 @@ export default function Header({ activeTab, setActiveTab, sidebarOpen, setSideba
     return (
         <header
             className="h-14 flex items-center justify-between px-4 lg:px-6 border-b"
-            style={{ background: 'var(--steam-dark)', borderColor: 'var(--steam-border)' }}
+            style={{ background: 'var(--amoled-black)', borderColor: 'var(--amoled-border)' }}
         >
             {/* Left — Logo */}
             <div className="flex items-center gap-3">
@@ -40,7 +40,7 @@ export default function Header({ activeTab, setActiveTab, sidebarOpen, setSideba
                         variant="ghost"
                         size="icon"
                         className="lg:hidden w-8 h-8 rounded"
-                        style={{ color: 'var(--steam-muted)' }}
+                        style={{ color: 'var(--amoled-muted)' }}
                         onClick={() => setSidebarOpen(!sidebarOpen)}
                     >
                         <Menu className="w-4 h-4" />
@@ -50,15 +50,15 @@ export default function Header({ activeTab, setActiveTab, sidebarOpen, setSideba
                 <div className="flex items-center gap-2">
                     <div
                         className="w-8 h-8 rounded flex items-center justify-center text-white font-bold text-sm"
-                        style={{ background: 'var(--steam-blue)' }}
+                        style={{ background: 'var(--amoled-gold)' }}
                     >
                         P
                     </div>
                     <div className="hidden sm:block">
-                        <span className="font-semibold text-base" style={{ color: 'var(--steam-text)' }}>
+                        <span className="font-semibold text-base" style={{ color: 'var(--amoled-text)' }}>
                             Portfolio
                         </span>
-                        <div className="text-xs font-mono" style={{ color: 'var(--steam-muted)' }}>
+                        <div className="text-xs font-mono" style={{ color: 'var(--amoled-muted)' }}>
                             Miguel Diniz
                         </div>
                     </div>
@@ -68,7 +68,7 @@ export default function Header({ activeTab, setActiveTab, sidebarOpen, setSideba
             {/* Center — Navigation */}
             <nav
                 className="flex items-center gap-0.5 rounded p-0.5"
-                style={{ background: 'rgba(0,0,0,0.2)', border: '1px solid var(--steam-border)' }}
+                style={{ background: 'rgba(0,0,0,0.2)', border: '1px solid var(--amoled-border)' }}
             >
                 {tabs.map((tab) => {
                     const isActive = activeTab === tab.id
@@ -78,9 +78,9 @@ export default function Header({ activeTab, setActiveTab, sidebarOpen, setSideba
                             onClick={() => setActiveTab(tab.id)}
                             className="flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded text-sm font-medium transition-colors"
                             style={{
-                                background:   isActive ? 'var(--steam-panel)' : 'transparent',
-                                color:        isActive ? 'var(--steam-blue)' : 'var(--steam-muted)',
-                                borderBottom: isActive ? `2px solid var(--steam-blue)` : '2px solid transparent',
+                                background:   isActive ? 'var(--amoled-panel)' : 'transparent',
+                                color:        isActive ? 'var(--amoled-gold)' : 'var(--amoled-muted)',
+                                borderBottom: isActive ? `2px solid var(--amoled-gold)` : '2px solid transparent',
                             }}
                         >
                             {tab.icon}
@@ -99,9 +99,9 @@ export default function Header({ activeTab, setActiveTab, sidebarOpen, setSideba
                         size="icon"
                         aria-label={item.label}
                         className="w-8 h-8 rounded transition-colors"
-                        style={{ color: 'var(--steam-muted)' }}
-                        onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--steam-text)')}
-                        onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--steam-muted)')}
+                        style={{ color: 'var(--amoled-muted)' }}
+                        onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--amoled-text)')}
+                        onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--amoled-muted)')}
                         onClick={() => window.open(item.href, '_blank')}
                     >
                         {item.icon}
@@ -112,14 +112,14 @@ export default function Header({ activeTab, setActiveTab, sidebarOpen, setSideba
                     size="icon"
                     aria-label="Contato"
                     className="w-8 h-8 rounded transition-colors"
-                    style={{ color: 'var(--steam-muted)' }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--steam-text)')}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--steam-muted)')}
+                    style={{ color: 'var(--amoled-muted)' }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--amoled-text)')}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--amoled-muted)')}
                     onClick={() => setActiveTab('contact')}
                 >
                     <Mail className="w-4 h-4" />
                 </Button>
-                <div className="w-px h-5 mx-1" style={{ background: 'var(--steam-border)' }} />
+                <div className="w-px h-5 mx-1" style={{ background: 'var(--amoled-border)' }} />
                 <LanguageSwitcher />
             </div>
         </header>

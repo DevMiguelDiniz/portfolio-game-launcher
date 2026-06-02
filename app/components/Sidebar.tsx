@@ -117,7 +117,7 @@ export default function Sidebar({ selectedProject, setSelectedProject, onProject
                                     }`}
                                     style={{ borderLeft: isActive ? undefined : '2px solid transparent' }}
                                     onMouseEnter={(e) => {
-                                        if (!isActive) e.currentTarget.style.background = 'rgba(42,71,94,0.2)'
+                                        if (!isActive) e.currentTarget.style.background = 'var(--amoled-gold-dim)'
                                     }}
                                     onMouseLeave={(e) => {
                                         e.currentTarget.style.background = ''

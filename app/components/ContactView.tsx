@@ -50,21 +50,21 @@ export default function ContactView() {
     }
 
     return (
-        <div className="h-full overflow-y-auto" style={{ background: 'var(--steam-navy)' }}>
+        <div className="h-full overflow-y-auto" style={{ background: 'var(--amoled-navy)' }}>
             {/* Hero Section */}
-            <div className="border-b p-4 lg:p-8" style={{ background: 'var(--steam-dark)', borderColor: 'var(--steam-border)' }}>
+            <div className="border-b p-4 lg:p-8" style={{ background: 'var(--amoled-dark)', borderColor: 'var(--amoled-border)' }}>
 
                 <div className="max-w-4xl mx-auto text-center relative z-10">
                     <div
                         className="w-14 h-14 lg:w-16 lg:h-16 mx-auto mb-4 rounded flex items-center justify-center"
-                        style={{ background: 'rgba(26,159,255,0.15)', border: '1px solid rgba(26,159,255,0.3)' }}
+                        style={{ background: 'rgba(201,165,42,0.12)', border: '1px solid rgba(201,165,42,0.25)' }}
                     >
-                        <MessageCircle className="w-7 h-7 lg:w-8 lg:h-8" style={{ color: 'var(--steam-blue)' }} />
+                        <MessageCircle className="w-7 h-7 lg:w-8 lg:h-8" style={{ color: 'var(--amoled-gold)' }} />
                     </div>
-                    <h1 className="text-2xl lg:text-4xl font-bold mb-3 animate-fade-in" style={{ color: 'var(--steam-text)' }}>
+                    <h1 className="text-2xl lg:text-4xl font-bold mb-3 animate-fade-in" style={{ color: 'var(--amoled-text)' }}>
                         {t('contact.title')}
                     </h1>
-                    <p className="text-sm lg:text-base max-w-2xl mx-auto leading-relaxed" style={{ color: 'var(--steam-muted)' }}>
+                    <p className="text-sm lg:text-base max-w-2xl mx-auto leading-relaxed" style={{ color: 'var(--amoled-muted)' }}>
                         {t('contact.subtitle')}
                     </p>
                 </div>
@@ -77,7 +77,7 @@ export default function ContactView() {
                         {/* Contact Info */}
                         <div className="space-y-6">
                             <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6 lg:mb-8 flex items-center">
-                                <div className="w-8 h-8 rounded-lg mr-3" style={{ background: 'var(--steam-blue)' }}></div>
+                                <div className="w-8 h-8 rounded-lg mr-3" style={{ background: 'var(--amoled-gold)' }}></div>
                                 {t('contact.letsTalk')}
                             </h2>
 
@@ -110,7 +110,7 @@ export default function ContactView() {
                                         key={index}
                                         className="steam-panel steam-hover group flex items-center space-x-4 p-4"
                                     >
-                                        <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-xl flex items-center justify-center" style={{ background: 'rgba(26,159,255,0.1)', color: 'var(--steam-blue)' }}>
+                                        <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-xl flex items-center justify-center" style={{ background: 'rgba(201,165,42,0.08)', color: 'var(--amoled-gold)' }}>
                                             {contact.icon}
                                         </div>
                                         <div className="flex-1">
@@ -151,7 +151,7 @@ export default function ContactView() {
                         {/* Contact Form */}
                         <div className="steam-panel p-6 lg:p-8">
                             <h3 className="text-xl lg:text-2xl font-bold text-white mb-6 flex items-center">
-                                <div className="w-6 h-6 rounded-lg mr-3" style={{ background: 'var(--steam-blue)' }}></div>
+                                <div className="w-6 h-6 rounded-lg mr-3" style={{ background: 'var(--amoled-gold)' }}></div>
                                 {t('contact.sendMessage')}
                             </h3>
 

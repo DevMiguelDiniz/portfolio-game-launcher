@@ -49,10 +49,16 @@ export default function Sidebar({ selectedProject, setSelectedProject, onProject
     return (
         <aside
             className="w-80 sm:w-72 lg:w-80 flex flex-col h-full border-r"
-            style={{ background: 'var(--amoled-panel)', borderColor: 'var(--amoled-border)' }}
+            style={{
+                background: 'rgba(255,255,255,0.04)',
+                backdropFilter: 'blur(20px)',
+                WebkitBackdropFilter: 'blur(20px)',
+                borderColor: 'rgba(255,255,255,0.08)',
+                boxShadow: '4px 0 24px rgba(0,0,0,0.4)',
+            }}
         >
             {/* Header */}
-            <div className="p-4 border-b" style={{ borderColor: 'var(--amoled-border)' }}>
+            <div className="p-4 border-b" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
                 <h2
                     className="text-xs font-semibold uppercase tracking-widest mb-4 flex items-center gap-2"
                     style={{ color: 'var(--amoled-muted)' }}
@@ -112,21 +118,24 @@ export default function Sidebar({ selectedProject, setSelectedProject, onProject
                                 <button
                                     key={project.id}
                                     onClick={() => handleProjectSelect(project.id)}
-                                    className={`w-full flex items-center gap-3 px-2 py-2.5 rounded text-left transition-colors ${
+                                    className={`w-full flex items-center gap-3 px-2 py-2.5 text-left transition-colors ${
                                         isActive ? 'steam-sidebar-active' : ''
                                     }`}
-                                    style={{ borderLeft: isActive ? undefined : '2px solid transparent' }}
+                                    style={{ borderRadius: 'var(--radius-md)' }}
                                     onMouseEnter={(e) => {
-                                        if (!isActive) e.currentTarget.style.background = 'var(--amoled-gold-dim)'
+                                        if (!isActive) {
+                                            e.currentTarget.style.background = 'var(--amoled-gold-dim)'
+                                            e.currentTarget.style.borderRadius = 'var(--radius-md)'
+                                        }
                                     }}
                                     onMouseLeave={(e) => {
-                                        e.currentTarget.style.background = ''
+                                        if (!isActive) e.currentTarget.style.background = ''
                                     }}
                                 >
                                     {/* Thumbnail */}
                                     <div
-                                        className="w-10 h-10 rounded overflow-hidden flex-shrink-0"
-                                        style={{ border: `1px solid var(--amoled-border)` }}
+                                        className="w-10 h-10 overflow-hidden flex-shrink-0"
+                                        style={{ borderRadius: 'var(--radius-sm)', border: `1px solid var(--amoled-border)` }}
                                     >
                                         <Image
                                             src={project.image || "/placeholder.svg"}
@@ -175,7 +184,7 @@ export default function Sidebar({ selectedProject, setSelectedProject, onProject
             </div>
 
             {/* Stats footer */}
-            <div className="p-3 border-t" style={{ borderColor: 'var(--amoled-border)', background: 'var(--amoled-black)' }}>
+            <div className="p-3 border-t" style={{ borderColor: 'rgba(255,255,255,0.06)', background: 'rgba(0,0,0,0.2)' }}>
                 <div className="flex justify-between text-xs" style={{ color: 'var(--amoled-muted)' }}>
                     <span>{t('sidebar.total')}: <span style={{ color: 'var(--amoled-text)' }}>{projects.length}</span></span>
                     <span>{t('sidebar.featured')}: <span style={{ color: 'var(--amoled-green-text)' }}>{projects.filter(p => p.featured).length}</span></span>

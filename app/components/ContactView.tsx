@@ -158,7 +158,7 @@ export default function ContactView() {
                             {/* Success Message */}
                             {isSubmitted && (
                                 <div className="mb-6 p-4 bg-gradient-to-r from-green-600/20 to-emerald-600/20 border border-green-500/50 rounded-xl flex items-center space-x-3 animate-bounce-in">
-                                    <CheckCircle className="w-5 h-5 text-green-400 animate-pulse" />
+                                    <CheckCircle className="w-5 h-5 text-green-400" />
                                     <span className="text-green-400 text-sm lg:text-base font-medium">
                                         {t('contact.success')}
                                     </span>

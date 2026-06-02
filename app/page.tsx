@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import type { TabType } from "./types"
 import SplashScreen from "./components/SplashScreen"
 import Header from "./components/Header"
 import Sidebar from "./components/Sidebar"
@@ -8,8 +9,6 @@ import ProjectsView from "./components/ProjectsView"
 import ProfileView from "./components/ProfileView"
 import ContactView from "./components/ContactView"
 import AchievementsView from "./components/AchievementsView"
-
-export type TabType = "projects" | "profile" | "contact" | "achievements"
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)

@@ -4,7 +4,7 @@ import { Github, Linkedin, Mail, User, FolderOpen, MessageCircle, Trophy, Menu }
 import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/hooks/use-language"
 import LanguageSwitcher from "./LanguageSwitcher"
-import type { TabType } from "../page"
+import type { TabType } from "../types"
 
 interface HeaderProps {
     activeTab: TabType

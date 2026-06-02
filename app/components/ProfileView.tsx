@@ -111,15 +111,15 @@ export default function ProfileView() {
             <div className="relative border-b p-6 lg:p-8 overflow-hidden" style={{ background: 'var(--amoled-black)', borderColor: 'var(--amoled-border)' }}>
                 {/* Background decoration */}
                 <div className="absolute inset-0 opacity-10">
-                    <div className="absolute top-20 left-20 w-40 h-40 bg-blue-500 rounded-full blur-3xl animate-float"></div>
-                    <div className="absolute bottom-20 right-20 w-32 h-32 bg-purple-500 rounded-full blur-3xl animate-float-delayed"></div>
-                    <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-cyan-500 rounded-full blur-2xl animate-float"></div>
+                    <div className="absolute top-20 left-20 w-40 h-40 bg-blue-500 rounded-full blur-3xl"></div>
+                    <div className="absolute bottom-20 right-20 w-32 h-32 bg-purple-500 rounded-full blur-3xl"></div>
+                    <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-cyan-500 rounded-full blur-2xl"></div>
                 </div>
 
                 <div className="max-w-6xl mx-auto relative z-10">
                     <div className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
                         {/* Profile Image */}
-                        <div className="relative group animate-bounce-in">
+                        <div className="relative group">
                             <div className="absolute inset-0 rounded-2xl opacity-40" style={{ background: 'var(--amoled-gold)' }}></div>
                             <div className="absolute inset-1 bg-gray-900 rounded-2xl"></div>
                             <div className="relative w-36 h-36 lg:w-40 lg:h-40 rounded-2xl overflow-hidden border-4 border-gray-700/50 shadow-2xl shadow-blue-500/25 transition-transform duration-300 group-hover:scale-105">
@@ -133,12 +133,6 @@ export default function ProfileView() {
                             </div>
                             <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-gray-900 shadow-lg"></div>
 
-                            {/* Floating particles around profile */}
-                            <div className="absolute -top-3 -left-3 w-4 h-4 bg-blue-400 rounded-full animate-bounce opacity-70"></div>
-                            <div
-                                className="absolute -bottom-3 -right-8 w-3 h-3 bg-purple-400 rounded-full animate-bounce opacity-60"
-                                style={{ animationDelay: '0.5s' }}
-                            ></div>
                         </div>
 
                         {/* Profile Info */}

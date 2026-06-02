@@ -131,7 +131,7 @@ export default function ProfileView() {
                                     className="w-full h-full object-cover"
                                 />
                             </div>
-                            <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-gray-900 animate-pulse shadow-lg"></div>
+                            <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-gray-900 shadow-lg"></div>
 
                             {/* Floating particles around profile */}
                             <div className="absolute -top-3 -left-3 w-4 h-4 bg-blue-400 rounded-full animate-bounce opacity-70"></div>
@@ -326,7 +326,7 @@ export default function ProfileView() {
                                                 <div className="flex items-center space-x-2 mt-2 md:mt-0">
                                                     <span className="text-gray-400 text-sm">{exp.period}</span>
                                                     {exp.current && (
-                                                        <span className="px-3 py-1 bg-green-600/20 text-green-400 text-xs rounded-lg border border-green-500/30 font-medium animate-pulse">
+                                                        <span className="px-3 py-1 bg-green-600/20 text-green-400 text-xs rounded-lg border border-green-500/30 font-medium">
                                                             {t('profile.current')}
                                                         </span>
                                                     )}

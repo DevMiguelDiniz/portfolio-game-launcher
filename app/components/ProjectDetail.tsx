@@ -59,15 +59,15 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                 <div className="absolute bottom-0 left-0 right-0 p-4 lg:p-8 animate-fade-in">
                     <div className="flex flex-wrap items-center gap-2 mb-3">
                         <span
-                            className="px-2.5 py-1 text-xs font-medium uppercase tracking-wide rounded"
-                            style={{ background: 'rgba(13,13,13,0.85)', border: '1px solid var(--amoled-border)', color: 'var(--amoled-muted)' }}
+                            className="px-2.5 py-1 text-xs font-medium uppercase tracking-wide"
+                            style={{ background: 'rgba(13,13,13,0.85)', border: '1px solid var(--amoled-border)', color: 'var(--amoled-muted)', borderRadius: 'var(--radius-sm)' }}
                         >
                             {project.category}
                         </span>
                         {project.featured && (
                             <span
-                                className="px-2.5 py-1 text-xs font-semibold rounded flex items-center gap-1"
-                                style={{ background: 'var(--amoled-green)', color: 'var(--amoled-green-text)' }}
+                                className="px-2.5 py-1 text-xs font-semibold flex items-center gap-1"
+                                style={{ background: 'var(--amoled-green)', color: 'var(--amoled-green-text)', borderRadius: 'var(--radius-sm)' }}
                             >
                                 <Star className="w-3 h-3 fill-current" />
                                 DESTAQUE
@@ -131,7 +131,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                             icon={<Code className="w-4 h-4" style={{ color: 'var(--amoled-gold)' }} />}
                             title="Sobre este projeto"
                         />
-                        <div className="steam-panel steam-hover p-5 lg:p-6">
+                        <div className="glass-panel steam-hover p-5 lg:p-6">
                             <p className="text-sm lg:text-base leading-relaxed" style={{ color: 'var(--amoled-text)' }}>
                                 {project.longDescription || project.description}
                             </p>
@@ -148,7 +148,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                             {project.technologies.map((tech) => (
                                 <div
                                     key={tech}
-                                    className="steam-panel steam-hover p-3 text-center"
+                                    className="glass-panel steam-hover p-3 text-center"
                                     style={{ color: 'var(--amoled-text)', fontSize: '0.85rem', fontFamily: 'var(--font-jetbrains-mono)' }}
                                 >
                                     {tech}
@@ -164,7 +164,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                                 icon={<Star className="w-4 h-4 fill-current" style={{ color: 'var(--amoled-green-text)' }} />}
                                 title="Principais funcionalidades"
                             />
-                            <div className="steam-panel p-5 lg:p-6">
+                            <div className="glass-panel p-5 lg:p-6">
                                 <div className="grid sm:grid-cols-2 gap-3">
                                     {project.features.map((feature) => (
                                         <div key={feature} className="flex items-start gap-2.5">
@@ -184,7 +184,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                                 icon={<Code className="w-4 h-4" style={{ color: 'var(--amoled-gold)' }} />}
                                 title="Desafios superados"
                             />
-                            <div className="steam-panel p-5 lg:p-6">
+                            <div className="glass-panel p-5 lg:p-6">
                                 <div className="space-y-3">
                                     {project.challenges.map((challenge) => (
                                         <div key={challenge} className="flex items-start gap-2.5">
@@ -200,7 +200,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                     {/* Links */}
                     {(project.liveUrl || project.videoUrl || project.githubUrl) && (
                         <section className="animate-fade-in">
-                            <div className="steam-panel p-5 lg:p-6">
+                            <div className="glass-panel p-5 lg:p-6">
                                 <div className="flex items-center gap-2 mb-4">
                                     <ExternalLink className="w-4 h-4" style={{ color: 'var(--amoled-gold)' }} />
                                     <h3 className="text-sm font-semibold" style={{ color: 'var(--amoled-text)' }}>Links do projeto</h3>

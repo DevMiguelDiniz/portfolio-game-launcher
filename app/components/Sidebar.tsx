@@ -129,7 +129,7 @@ export default function Sidebar({ selectedProject, setSelectedProject, onProject
                                         }
                                     }}
                                     onMouseLeave={(e) => {
-                                        if (!isActive) e.currentTarget.style.background = ''
+                                        e.currentTarget.style.background = ''
                                     }}
                                 >
                                     {/* Thumbnail */}

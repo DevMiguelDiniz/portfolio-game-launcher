@@ -56,8 +56,8 @@ export default function ContactView() {
 
                 <div className="max-w-4xl mx-auto text-center relative z-10">
                     <div
-                        className="w-14 h-14 lg:w-16 lg:h-16 mx-auto mb-4 rounded flex items-center justify-center"
-                        style={{ background: 'rgba(201,165,42,0.12)', border: '1px solid rgba(201,165,42,0.25)' }}
+                        className="glass-gold w-14 h-14 lg:w-16 lg:h-16 mx-auto mb-4 flex items-center justify-center"
+                        style={{ borderRadius: 'var(--radius-md)' }}
                     >
                         <MessageCircle className="w-7 h-7 lg:w-8 lg:h-8" style={{ color: 'var(--amoled-gold)' }} />
                     </div>
@@ -149,7 +149,7 @@ export default function ContactView() {
                         </div>
 
                         {/* Contact Form */}
-                        <div className="steam-panel p-6 lg:p-8">
+                        <div className="glass-surface p-6 lg:p-8">
                             <h3 className="text-xl lg:text-2xl font-bold text-white mb-6 flex items-center">
                                 <div className="w-6 h-6 rounded-lg mr-3" style={{ background: 'var(--amoled-gold)' }}></div>
                                 {t('contact.sendMessage')}

@@ -38,43 +38,43 @@ export default function AchievementsView() {
             name: t('category.frontend'),
             count: projects.filter((p) => p.category === "frontend").length,
             icon: <Globe className="w-4 h-4 lg:w-5 lg:h-5" />,
-            color: 'var(--steam-blue)',
-            bgColor: 'rgba(26,159,255,0.1)',
+            color: 'var(--amoled-gold)',
+            bgColor: 'rgba(201,165,42,0.08)',
         },
         {
             name: t('category.backend'),
             count: projects.filter((p) => p.category === "backend").length,
             icon: <Database className="w-4 h-4 lg:w-5 lg:h-5" />,
-            color: 'var(--steam-blue)',
-            bgColor: 'rgba(26,159,255,0.1)',
+            color: 'var(--amoled-gold)',
+            bgColor: 'rgba(201,165,42,0.08)',
         },
         {
             name: t('category.mobile'),
             count: projects.filter((p) => p.category === "mobile").length,
             icon: <Smartphone className="w-4 h-4 lg:w-5 lg:h-5" />,
-            color: 'var(--steam-blue)',
-            bgColor: 'rgba(26,159,255,0.1)',
+            color: 'var(--amoled-gold)',
+            bgColor: 'rgba(201,165,42,0.08)',
         },
         {
             name: t('category.fullstack'),
             count: projects.filter((p) => p.category === "fullstack").length,
             icon: <Code className="w-4 h-4 lg:w-5 lg:h-5" />,
-            color: 'var(--steam-blue)',
-            bgColor: 'rgba(26,159,255,0.1)',
+            color: 'var(--amoled-gold)',
+            bgColor: 'rgba(201,165,42,0.08)',
         },
         {
             name: t('category.web'),
             count: projects.filter((p) => p.category === "web").length,
             icon: <Globe className="w-4 h-4 lg:w-5 lg:h-5" />,
-            color: 'var(--steam-blue)',
-            bgColor: 'rgba(26,159,255,0.1)',
+            color: 'var(--amoled-gold)',
+            bgColor: 'rgba(201,165,42,0.08)',
         },
         {
             name: t('category.desktop'),
             count: projects.filter((p) => p.category === "desktop").length,
             icon: <Code className="w-4 h-4 lg:w-5 lg:h-5" />,
-            color: 'var(--steam-blue)',
-            bgColor: 'rgba(26,159,255,0.1)',
+            color: 'var(--amoled-gold)',
+            bgColor: 'rgba(201,165,42,0.08)',
         },
     ].filter((cat) => cat.count > 0)
 
@@ -155,9 +155,9 @@ export default function AchievementsView() {
     }
 
     return (
-        <div className="h-full overflow-y-auto" style={{ background: 'var(--steam-navy)' }}>
+        <div className="h-full overflow-y-auto" style={{ background: 'var(--amoled-black)' }}>
             {/* Hero Section */}
-            <div className="border-b p-4 lg:p-8" style={{ background: 'var(--steam-dark)', borderColor: 'var(--steam-border)' }}>
+            <div className="border-b p-4 lg:p-8" style={{ background: 'var(--amoled-black)', borderColor: 'var(--amoled-border)' }}>
                 <div className="max-w-6xl mx-auto">
                     <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6 mb-8">
                         <div className="w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-2xl shadow-yellow-500/25 animate-bounce-in">

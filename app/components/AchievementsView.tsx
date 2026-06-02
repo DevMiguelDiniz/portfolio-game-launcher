@@ -203,7 +203,7 @@ export default function AchievementsView() {
                         ].map((stat, index) => (
                             <div
                                 key={index}
-                                className="steam-panel steam-hover p-4 lg:p-6 group hover:scale-105"
+                                className="glass-panel steam-hover p-4 lg:p-6 group hover:scale-105"
                                 style={{ animationDelay: `${index * 150}ms` }}
                             >
                                 <div className="flex items-center justify-between mb-3">
@@ -238,7 +238,7 @@ export default function AchievementsView() {
                                 return (
                                     <div
                                         key={achievement.id}
-                                        className={`steam-panel relative p-4 lg:p-6 transition-all duration-300 group ${
+                                        className={`glass-panel relative p-4 lg:p-6 transition-all duration-300 group ${
                                             achievement.unlocked
                                                 ? `rarity-${achievement.rarity} hover:scale-105 hover:-translate-y-2`
                                                 : "rarity-common opacity-50"
@@ -312,7 +312,7 @@ export default function AchievementsView() {
                             </div>
                             {t('achievements.techStats')}
                         </h2>
-                        <div className="steam-panel steam-hover p-6 lg:p-8">
+                        <div className="glass-panel steam-hover p-6 lg:p-8">
                             <div className="grid gap-4 lg:gap-6">
                                 {technologyStats.slice(0, 10).map((tech, index) => (
                                     <div
@@ -364,7 +364,7 @@ export default function AchievementsView() {
                             {categoryStats.map((category, index) => (
                                 <div
                                     key={category.name}
-                                    className="steam-panel steam-hover p-6 group hover:scale-105"
+                                    className="glass-panel steam-hover p-6 group hover:scale-105"
                                     style={{ animationDelay: `${index * 150}ms` }}
                                 >
                                     <div className="flex items-center space-x-4 mb-4">
@@ -399,7 +399,7 @@ export default function AchievementsView() {
 
                     {/* Progress Summary */}
                     <section className="animate-fade-in">
-                        <div className="steam-panel steam-hover p-8 lg:p-10 text-center">
+                        <div className="glass-panel steam-hover p-8 lg:p-10 text-center">
                             <h2 className="text-2xl lg:text-3xl font-bold text-white mb-8 flex items-center justify-center">
                                 <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl mr-3 flex items-center justify-center">
                                     <Award className="w-5 h-5 text-white" />

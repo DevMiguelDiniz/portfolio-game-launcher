@@ -60,15 +60,21 @@ export default function SplashScreen() {
             className="min-h-screen flex items-center justify-center"
             style={{ background: '#000000' }}
         >
-            <div className="text-center z-10 max-w-sm w-full px-8">
-
+            <div
+                className="glass-gold text-center z-10 max-w-sm w-full px-8 py-10"
+                style={{ borderRadius: 'var(--radius-xl)' }}
+            >
                 {/* Logo */}
                 <div className="mb-8 animate-bounce-in">
                     <div
-                        className="w-20 h-20 rounded-xl flex items-center justify-center mx-auto mb-6"
-                        style={{ background: '#0d0d0d', border: '1px solid rgba(201,165,42,0.5)' }}
+                        className="w-20 h-20 flex items-center justify-center mx-auto mb-6"
+                        style={{
+                            background: 'rgba(201,165,42,0.12)',
+                            border: '1px solid rgba(201,165,42,0.3)',
+                            borderRadius: 'var(--radius-md)',
+                        }}
                     >
-                        <span className="font-bold text-2xl" style={{ color: '#ffffff' }}>P</span>
+                        <span className="font-bold text-2xl" style={{ color: 'var(--amoled-gold)' }}>P</span>
                     </div>
                     <h1 className="text-3xl font-bold mb-2" style={{ color: '#ffffff' }}>
                         Portfolio
@@ -97,7 +103,7 @@ export default function SplashScreen() {
                         />
                         <div
                             className="absolute inset-1 rounded-full overflow-hidden"
-                            style={{ background: '#0d0d0d' }}
+                            style={{ background: 'var(--amoled-panel)' }}
                         >
                             <Image
                                 src="/placeholder.svg?height=88&width=88&text=Foto"
@@ -138,11 +144,12 @@ export default function SplashScreen() {
                             {currentStep}
                         </span>
                         <span
-                            className="text-xs font-mono flex-shrink-0 px-2 py-0.5 rounded"
+                            className="text-xs font-mono flex-shrink-0 px-2 py-0.5"
                             style={{
                                 color: '#c9a52a',
                                 background: 'rgba(201,165,42,0.08)',
                                 border: '1px solid rgba(201,165,42,0.2)',
+                                borderRadius: 'var(--radius-sm)',
                             }}
                         >
                             {Math.round(progress)}%
@@ -163,17 +170,17 @@ export default function SplashScreen() {
                 {/* Version badge */}
                 <div className="mt-10">
                     <p
-                        className="text-xs font-mono inline-block px-3 py-1 rounded"
+                        className="text-xs font-mono inline-block px-3 py-1"
                         style={{
                             color: '#606060',
-                            background: '#0d0d0d',
-                            border: '1px solid #1c1c1c',
+                            background: 'rgba(255,255,255,0.04)',
+                            border: '1px solid rgba(255,255,255,0.08)',
+                            borderRadius: 'var(--radius-sm)',
                         }}
                     >
-                        Portfolio v2.0 • Next.js 15 • AMOLED Edition
+                        Portfolio v2.0 • Next.js 15 • Apple Glass Edition
                     </p>
                 </div>
-
             </div>
         </div>
     )

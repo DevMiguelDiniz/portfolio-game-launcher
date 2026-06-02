@@ -2,7 +2,6 @@
 
 import Image from "next/image"
 import { MapPin, Calendar, Mail, Download, Code, Database, Smartphone, Globe, Star, Briefcase, GraduationCap } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/hooks/use-language"
 
 export default function ProfileView() {
@@ -57,72 +56,48 @@ export default function ProfileView() {
     ]
 
     const personalStats = [
-        {
-            label: "Anos de Experiência",
-            value: "2+",
-            icon: <Calendar className="w-5 h-5" />,
-            color: "from-blue-500 to-cyan-500"
-        },
-        {
-            label: "Projetos Concluídos",
-            value: "15+",
-            icon: <Code className="w-5 h-5" />,
-            color: "from-green-500 to-emerald-500"
-        },
-        {
-            label: "Tecnologias",
-            value: "20+",
-            icon: <Database className="w-5 h-5" />,
-            color: "from-purple-500 to-violet-500"
-        },
-        {
-            label: "Certificações",
-            value: "5+",
-            icon: <Star className="w-5 h-5" />,
-            color: "from-yellow-500 to-orange-500"
-        }
+        { label: "Anos de Experiência", value: "2+",  icon: <Calendar className="w-5 h-5" /> },
+        { label: "Projetos Concluídos",  value: "15+", icon: <Code className="w-5 h-5" /> },
+        { label: "Tecnologias",          value: "20+", icon: <Database className="w-5 h-5" /> },
+        { label: "Certificações",        value: "5+",  icon: <Star className="w-5 h-5" /> },
     ]
 
     const handleContactClick = () => {
-        // Aqui você pode implementar a navegação para a página de contato
-        // ou abrir um modal de contato
         console.log('Navegando para contato...')
     }
 
     const handleDownloadCV = () => {
-        const fileName = language === 'pt' ? 'Miguel_Diniz_CV_PT.pdf' : 'Miguel_Diniz_CV_EN.pdf';
-
-        const link = document.createElement('a');
-        link.href = `/CV/${fileName}`;
-        link.download = fileName;
-        link.target = '_blank';
-
-        document.body.appendChild(link);
-        link.click();
-
-        document.body.removeChild(link);
-
-        console.log(`Fazendo download do CV: ${fileName}`);
+        const fileName = language === 'pt' ? 'Miguel_Diniz_CV_PT.pdf' : 'Miguel_Diniz_CV_EN.pdf'
+        const link = document.createElement('a')
+        link.href = `/CV/${fileName}`
+        link.download = fileName
+        link.target = '_blank'
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
     }
 
     return (
         <div className="h-full overflow-y-auto" style={{ background: 'var(--amoled-black)' }}>
-            {/* Hero Section */}
-            <div className="relative border-b p-6 lg:p-8 overflow-hidden" style={{ background: 'var(--amoled-black)', borderColor: 'var(--amoled-border)' }}>
-                {/* Background decoration */}
-                <div className="absolute inset-0 opacity-10">
-                    <div className="absolute top-20 left-20 w-40 h-40 bg-blue-500 rounded-full blur-3xl"></div>
-                    <div className="absolute bottom-20 right-20 w-32 h-32 bg-purple-500 rounded-full blur-3xl"></div>
-                    <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-cyan-500 rounded-full blur-2xl"></div>
-                </div>
 
+            {/* Hero Section */}
+            <div
+                className="relative border-b p-6 lg:p-8 overflow-hidden"
+                style={{ background: 'var(--amoled-black)', borderColor: 'rgba(255,255,255,0.06)' }}
+            >
                 <div className="max-w-6xl mx-auto relative z-10">
                     <div className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
+
                         {/* Profile Image */}
-                        <div className="relative group">
-                            <div className="absolute inset-0 rounded-2xl opacity-40" style={{ background: 'var(--amoled-gold)' }}></div>
-                            <div className="absolute inset-1 bg-gray-900 rounded-2xl"></div>
-                            <div className="relative w-36 h-36 lg:w-40 lg:h-40 rounded-2xl overflow-hidden border-4 border-gray-700/50 shadow-2xl shadow-blue-500/25 transition-transform duration-300 group-hover:scale-105">
+                        <div className="relative">
+                            <div
+                                className="w-36 h-36 lg:w-40 lg:h-40 overflow-hidden border-2"
+                                style={{
+                                    borderRadius: '20px',
+                                    borderColor: 'rgba(201,165,42,0.4)',
+                                    boxShadow: '0 0 40px rgba(201,165,42,0.15), 0 20px 60px rgba(0,0,0,0.8)',
+                                }}
+                            >
                                 <Image
                                     src="/Miguel.jpg"
                                     alt="Profile"
@@ -131,31 +106,41 @@ export default function ProfileView() {
                                     className="w-full h-full object-cover"
                                 />
                             </div>
-                            <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-gray-900 shadow-lg"></div>
-
+                            <div
+                                className="absolute -bottom-2 -right-2 w-7 h-7 border-4"
+                                style={{
+                                    background: 'var(--amoled-green-text)',
+                                    borderRadius: '50%',
+                                    borderColor: 'var(--amoled-black)',
+                                }}
+                            />
                         </div>
 
                         {/* Profile Info */}
                         <div className="text-center md:text-left flex-1">
-                            <h1 className="text-4xl lg:text-5xl font-bold mb-3 animate-fade-in">
-                                <span className="bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent">
-                                    Miguel Diniz
-                                </span>
+                            <h1 className="text-4xl lg:text-5xl font-bold mb-3 animate-fade-in" style={{ color: 'var(--amoled-text)' }}>
+                                Miguel Diniz
                             </h1>
-                            <p className="text-blue-400 text-xl lg:text-2xl mb-4 font-semibold animate-slide-in-right">
+                            <p className="text-xl lg:text-2xl mb-4 font-semibold animate-slide-in-right" style={{ color: 'var(--amoled-gold)' }}>
                                 Desenvolvedor Full Stack
                             </p>
 
                             <div
-                                className="flex flex-wrap justify-center md:justify-start gap-4 text-gray-400 mb-6 animate-slide-in-right"
+                                className="flex flex-wrap justify-center md:justify-start gap-4 mb-6 animate-slide-in-right"
                                 style={{ animationDelay: '200ms' }}
                             >
-                                <div className="flex items-center space-x-2 bg-gray-800/40 backdrop-blur-sm px-3 py-2 rounded-xl border border-gray-700/50">
-                                    <MapPin className="w-4 h-4 text-blue-400" />
+                                <div
+                                    className="glass-gold flex items-center space-x-2 px-3 py-2"
+                                    style={{ borderRadius: 'var(--radius-sm)', color: 'var(--amoled-muted)' }}
+                                >
+                                    <MapPin className="w-4 h-4" style={{ color: 'var(--amoled-gold)' }} />
                                     <span className="text-sm lg:text-base">{t('profile.location')}</span>
                                 </div>
-                                <div className="flex items-center space-x-2 bg-gray-800/40 backdrop-blur-sm px-3 py-2 rounded-xl border border-gray-700/50">
-                                    <Calendar className="w-4 h-4 text-green-400" />
+                                <div
+                                    className="glass-gold flex items-center space-x-2 px-3 py-2"
+                                    style={{ borderRadius: 'var(--radius-sm)', color: 'var(--amoled-muted)' }}
+                                >
+                                    <Calendar className="w-4 h-4" style={{ color: 'var(--amoled-gold)' }} />
                                     <span className="text-sm lg:text-base">{t('profile.experienceYears')}</span>
                                 </div>
                             </div>
@@ -164,21 +149,14 @@ export default function ProfileView() {
                                 className="flex flex-wrap justify-center md:justify-start gap-3 animate-slide-in-right"
                                 style={{ animationDelay: '400ms' }}
                             >
-                                <Button
-                                    onClick={handleDownloadCV}
-                                    className="btn-enhanced bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 group"
-                                >
-                                    <Download className="w-4 h-4 mr-2 transition-transform duration-300 group-hover:scale-110" />
+                                <button onClick={handleDownloadCV} className="steam-btn-primary flex items-center gap-2 px-4 py-2">
+                                    <Download className="w-4 h-4" />
                                     {t('profile.downloadCV')}
-                                </Button>
-                                <Button
-                                    variant="outline"
-                                    onClick={handleContactClick}
-                                    className="border-2 border-gray-600/50 text-gray-300 hover:bg-gray-800/60 hover:border-blue-500/50 bg-gray-900/40 backdrop-blur-sm group"
-                                >
-                                    <Mail className="w-4 h-4 mr-2 transition-transform duration-300 group-hover:scale-110" />
+                                </button>
+                                <button onClick={handleContactClick} className="steam-btn-secondary flex items-center gap-2 px-4 py-2">
+                                    <Mail className="w-4 h-4" />
                                     {t('profile.contact')}
-                                </Button>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -188,18 +166,19 @@ export default function ProfileView() {
                         {personalStats.map((stat, index) => (
                             <div
                                 key={index}
-                                className="project-card-enhanced p-4 text-center group hover:scale-105"
+                                className="glass-panel steam-hover p-4 text-center"
                                 style={{ animationDelay: `${600 + index * 100}ms` }}
                             >
-                                <div className={`w-10 h-10 mx-auto mb-2 bg-gradient-to-r ${stat.color} rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12`}>
-                                    <div className="text-white">
-                                        {stat.icon}
-                                    </div>
+                                <div
+                                    className="w-10 h-10 mx-auto mb-2 flex items-center justify-center"
+                                    style={{ background: 'rgba(201,165,42,0.12)', borderRadius: 'var(--radius-sm)', color: 'var(--amoled-gold)' }}
+                                >
+                                    {stat.icon}
                                 </div>
-                                <div className={`text-xl lg:text-2xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`}>
+                                <div className="text-xl lg:text-2xl font-bold" style={{ color: 'var(--amoled-gold)' }}>
                                     {stat.value}
                                 </div>
-                                <div className="text-gray-400 text-xs lg:text-sm">{stat.label}</div>
+                                <div className="text-xs" style={{ color: 'var(--amoled-muted)' }}>{stat.label}</div>
                             </div>
                         ))}
                     </div>
@@ -209,47 +188,45 @@ export default function ProfileView() {
             {/* Content */}
             <div className="p-6 lg:p-8">
                 <div className="max-w-6xl mx-auto space-y-12">
+
                     {/* About */}
                     <section className="animate-fade-in">
-                        <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6 flex items-center">
-                            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl mr-4 flex items-center justify-center">
-                                <Star className="w-5 h-5 text-white" />
+                        <h2 className="text-3xl lg:text-4xl font-bold mb-6 flex items-center" style={{ color: 'var(--amoled-text)' }}>
+                            <div
+                                className="w-8 h-8 mr-4 flex items-center justify-center"
+                                style={{ background: 'rgba(201,165,42,0.12)', borderRadius: 'var(--radius-sm)', color: 'var(--amoled-gold)' }}
+                            >
+                                <Star className="w-5 h-5" />
                             </div>
                             {t('profile.title')}
                         </h2>
-                        <div className="project-card-enhanced p-6 lg:p-8">
+                        <div className="glass-panel p-6 lg:p-8">
                             <div className="space-y-4">
-                                <p className="text-gray-300 text-base lg:text-lg leading-relaxed">
-                                    {t('profile.bio1')}
-                                </p>
-                                <p className="text-gray-300 text-base lg:text-lg leading-relaxed">
-                                    {t('profile.bio2')}
-                                </p>
-                                <p className="text-gray-300 text-base lg:text-lg leading-relaxed">
-                                    {t('profile.bio3')}
-                                </p>
+                                <p className="text-base lg:text-lg leading-relaxed" style={{ color: 'var(--amoled-muted)' }}>{t('profile.bio1')}</p>
+                                <p className="text-base lg:text-lg leading-relaxed" style={{ color: 'var(--amoled-muted)' }}>{t('profile.bio2')}</p>
+                                <p className="text-base lg:text-lg leading-relaxed" style={{ color: 'var(--amoled-muted)' }}>{t('profile.bio3')}</p>
                             </div>
                         </div>
                     </section>
 
                     {/* Skills */}
                     <section className="animate-slide-in-right" style={{ animationDelay: '200ms' }}>
-                        <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6 flex items-center">
-                            <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl mr-4 flex items-center justify-center">
-                                <Code className="w-5 h-5 text-white" />
+                        <h2 className="text-3xl lg:text-4xl font-bold mb-6 flex items-center" style={{ color: 'var(--amoled-text)' }}>
+                            <div
+                                className="w-8 h-8 mr-4 flex items-center justify-center"
+                                style={{ background: 'rgba(201,165,42,0.12)', borderRadius: 'var(--radius-sm)', color: 'var(--amoled-gold)' }}
+                            >
+                                <Code className="w-5 h-5" />
                             </div>
                             {t('profile.skills')}
                         </h2>
                         <div className="grid md:grid-cols-2 gap-6">
                             {skills.map((skill, index) => (
-                                <div
-                                    key={index}
-                                    className="steam-panel steam-hover p-4 lg:p-5"
-                                >
+                                <div key={index} className="steam-panel steam-hover p-4 lg:p-5">
                                     <div className="flex items-center gap-3 mb-3">
                                         <div
-                                            className="w-9 h-9 rounded flex items-center justify-center flex-shrink-0"
-                                            style={{ background: 'rgba(201,165,42,0.08)', color: 'var(--amoled-gold)' }}
+                                            className="w-9 h-9 flex items-center justify-center flex-shrink-0"
+                                            style={{ background: 'rgba(201,165,42,0.08)', borderRadius: 'var(--radius-sm)', color: 'var(--amoled-gold)' }}
                                         >
                                             {skill.icon}
                                         </div>
@@ -282,9 +259,12 @@ export default function ProfileView() {
 
                     {/* Experience */}
                     <section className="animate-slide-in-right" style={{ animationDelay: '400ms' }}>
-                        <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6 flex items-center">
-                            <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-violet-500 rounded-xl mr-4 flex items-center justify-center">
-                                <Briefcase className="w-5 h-5 text-white" />
+                        <h2 className="text-3xl lg:text-4xl font-bold mb-6 flex items-center" style={{ color: 'var(--amoled-text)' }}>
+                            <div
+                                className="w-8 h-8 mr-4 flex items-center justify-center"
+                                style={{ background: 'rgba(201,165,42,0.12)', borderRadius: 'var(--radius-sm)', color: 'var(--amoled-gold)' }}
+                            >
+                                <Briefcase className="w-5 h-5" />
                             </div>
                             {t('profile.experience')}
                         </h2>
@@ -292,41 +272,50 @@ export default function ProfileView() {
                             {experience.map((exp, index) => (
                                 <div
                                     key={index}
-                                    className={`project-card-enhanced p-6 transition-all duration-400 group hover:scale-105 ${
-                                        exp.current
-                                            ? "border-2 border-green-500/50 shadow-green-500/20"
-                                            : ""
-                                    }`}
-                                    style={{ animationDelay: `${index * 150}ms` }}
+                                    className="glass-panel steam-hover p-6"
+                                    style={{
+                                        borderLeftWidth: exp.current ? '2px' : undefined,
+                                        borderLeftColor: exp.current ? 'var(--amoled-green-text)' : undefined,
+                                        animationDelay: `${index * 150}ms`,
+                                    }}
                                 >
                                     <div className="flex items-start space-x-4">
-                                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12 ${
-                                            exp.current
-                                                ? "bg-gradient-to-r from-green-500 to-emerald-500"
-                                                : "bg-gradient-to-r from-gray-600 to-gray-700"
-                                        }`}>
-                                            <div className="text-white">
-                                                {exp.icon}
-                                            </div>
+                                        <div
+                                            className="w-12 h-12 flex items-center justify-center flex-shrink-0"
+                                            style={{
+                                                background: exp.current ? 'rgba(164,208,7,0.15)' : 'rgba(255,255,255,0.06)',
+                                                borderRadius: 'var(--radius-sm)',
+                                                color: exp.current ? 'var(--amoled-green-text)' : 'var(--amoled-muted)',
+                                            }}
+                                        >
+                                            {exp.icon}
                                         </div>
                                         <div className="flex-1">
                                             <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
                                                 <div>
-                                                    <h3 className="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors duration-300">
+                                                    <h3 className="text-xl font-semibold" style={{ color: 'var(--amoled-text)' }}>
                                                         {exp.title}
                                                     </h3>
-                                                    <p className="text-blue-400 font-medium">{exp.company}</p>
+                                                    <p className="font-medium" style={{ color: 'var(--amoled-gold)' }}>{exp.company}</p>
                                                 </div>
                                                 <div className="flex items-center space-x-2 mt-2 md:mt-0">
-                                                    <span className="text-gray-400 text-sm">{exp.period}</span>
+                                                    <span className="text-sm" style={{ color: 'var(--amoled-muted)' }}>{exp.period}</span>
                                                     {exp.current && (
-                                                        <span className="px-3 py-1 bg-green-600/20 text-green-400 text-xs rounded-lg border border-green-500/30 font-medium">
+                                                        <span
+                                                            className="px-3 py-1 text-xs font-medium"
+                                                            style={{
+                                                                background: 'rgba(164,208,7,0.1)',
+                                                                color: 'var(--amoled-green-text)',
+                                                                borderRadius: 'var(--radius-sm)',
+                                                                border: '1px solid rgba(164,208,7,0.2)',
+                                                            }}
+                                                        >
                                                             {t('profile.current')}
                                                         </span>
                                                     )}
                                                 </div>
                                             </div>
-                                            <p className="text-gray-300 leading-relaxed">{exp.description}</p>
+                                            <p className="leading-relaxed" style={{ color: 'var(--amoled-muted)' }}>{exp.description}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -336,9 +325,12 @@ export default function ProfileView() {
 
                     {/* Education */}
                     <section className="animate-slide-in-right" style={{ animationDelay: '600ms' }}>
-                        <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6 flex items-center">
-                            <div className="w-8 h-8 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-xl mr-4 flex items-center justify-center">
-                                <GraduationCap className="w-5 h-5 text-white" />
+                        <h2 className="text-3xl lg:text-4xl font-bold mb-6 flex items-center" style={{ color: 'var(--amoled-text)' }}>
+                            <div
+                                className="w-8 h-8 mr-4 flex items-center justify-center"
+                                style={{ background: 'rgba(201,165,42,0.12)', borderRadius: 'var(--radius-sm)', color: 'var(--amoled-gold)' }}
+                            >
+                                <GraduationCap className="w-5 h-5" />
                             </div>
                             Educação
                         </h2>
@@ -346,26 +338,25 @@ export default function ProfileView() {
                             {education.map((edu, index) => (
                                 <div
                                     key={index}
-                                    className="project-card-enhanced p-6 group hover:scale-105"
+                                    className="glass-panel steam-hover p-6"
                                     style={{ animationDelay: `${index * 150}ms` }}
                                 >
                                     <div className="flex items-start space-x-4">
-                                        <div className="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12">
-                                            <div className="text-white">
-                                                {edu.icon}
-                                            </div>
+                                        <div
+                                            className="w-12 h-12 flex items-center justify-center flex-shrink-0"
+                                            style={{ background: 'rgba(201,165,42,0.12)', borderRadius: 'var(--radius-sm)', color: 'var(--amoled-gold)' }}
+                                        >
+                                            {edu.icon}
                                         </div>
                                         <div className="flex-1">
                                             <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
                                                 <div>
-                                                    <h3 className="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors duration-300">
-                                                        {edu.title}
-                                                    </h3>
-                                                    <p className="text-yellow-400 font-medium">{edu.institution}</p>
+                                                    <h3 className="text-xl font-semibold" style={{ color: 'var(--amoled-text)' }}>{edu.title}</h3>
+                                                    <p className="font-medium" style={{ color: 'var(--amoled-gold)' }}>{edu.institution}</p>
                                                 </div>
-                                                <span className="text-gray-400 text-sm mt-2 md:mt-0">{edu.period}</span>
+                                                <span className="text-sm mt-2 md:mt-0" style={{ color: 'var(--amoled-muted)' }}>{edu.period}</span>
                                             </div>
-                                            <p className="text-gray-300 leading-relaxed">{edu.description}</p>
+                                            <p className="leading-relaxed" style={{ color: 'var(--amoled-muted)' }}>{edu.description}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -375,33 +366,27 @@ export default function ProfileView() {
 
                     {/* Call to Action */}
                     <section className="animate-fade-in" style={{ animationDelay: '800ms' }}>
-                        <div className="project-card-enhanced p-8 lg:p-10 text-center">
-                            <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">
+                        <div className="glass-gold p-8 lg:p-10 text-center" style={{ borderRadius: 'var(--radius-xl)' }}>
+                            <h3 className="text-2xl lg:text-3xl font-bold mb-4" style={{ color: 'var(--amoled-text)' }}>
                                 Interessado em trabalhar juntos?
                             </h3>
-                            <p className="text-gray-400 text-base lg:text-lg mb-6 max-w-2xl mx-auto">
+                            <p className="text-base lg:text-lg mb-6 max-w-2xl mx-auto" style={{ color: 'var(--amoled-muted)' }}>
                                 Estou sempre aberto a novos desafios e oportunidades.
                                 Vamos conversar sobre como posso ajudar no seu próximo projeto!
                             </p>
                             <div className="flex flex-wrap justify-center gap-4">
-                                <Button
-                                    onClick={handleContactClick}
-                                    className="btn-enhanced bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 group"
-                                >
-                                    <Mail className="w-4 h-4 mr-2 transition-transform duration-300 group-hover:scale-110" />
+                                <button onClick={handleContactClick} className="steam-btn-primary flex items-center gap-2 px-5 py-2.5">
+                                    <Mail className="w-4 h-4" />
                                     Entre em Contato
-                                </Button>
-                                <Button
-                                    variant="outline"
-                                    onClick={handleDownloadCV}
-                                    className="border-2 border-gray-600/50 text-gray-300 hover:bg-gray-800/60 hover:border-blue-500/50 bg-gray-900/40 backdrop-blur-sm group"
-                                >
-                                    <Download className="w-4 h-4 mr-2 transition-transform duration-300 group-hover:scale-110" />
+                                </button>
+                                <button onClick={handleDownloadCV} className="steam-btn-secondary flex items-center gap-2 px-5 py-2.5">
+                                    <Download className="w-4 h-4" />
                                     Download CV
-                                </Button>
+                                </button>
                             </div>
                         </div>
                     </section>
+
                 </div>
             </div>
         </div>

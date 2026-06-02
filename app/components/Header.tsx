@@ -31,7 +31,13 @@ export default function Header({ activeTab, setActiveTab, sidebarOpen, setSideba
     return (
         <header
             className="h-14 flex items-center justify-between px-4 lg:px-6 border-b"
-            style={{ background: 'var(--amoled-black)', borderColor: 'var(--amoled-border)' }}
+            style={{
+                background: 'rgba(255,255,255,0.03)',
+                backdropFilter: 'blur(20px)',
+                WebkitBackdropFilter: 'blur(20px)',
+                borderColor: 'rgba(255,255,255,0.06)',
+                boxShadow: '0 2px 12px rgba(0,0,0,0.4)',
+            }}
         >
             {/* Left — Logo */}
             <div className="flex items-center gap-3">
@@ -39,8 +45,8 @@ export default function Header({ activeTab, setActiveTab, sidebarOpen, setSideba
                     <Button
                         variant="ghost"
                         size="icon"
-                        className="lg:hidden w-8 h-8 rounded"
-                        style={{ color: 'var(--amoled-muted)' }}
+                        className="lg:hidden w-8 h-8"
+                        style={{ color: 'var(--amoled-muted)', borderRadius: 'var(--radius-sm)' }}
                         onClick={() => setSidebarOpen(!sidebarOpen)}
                     >
                         <Menu className="w-4 h-4" />
@@ -49,8 +55,8 @@ export default function Header({ activeTab, setActiveTab, sidebarOpen, setSideba
 
                 <div className="flex items-center gap-2">
                     <div
-                        className="w-8 h-8 rounded flex items-center justify-center text-white font-bold text-sm"
-                        style={{ background: 'var(--amoled-gold)' }}
+                        className="w-8 h-8 flex items-center justify-center text-white font-bold text-sm"
+                        style={{ background: 'var(--amoled-gold)', borderRadius: 'var(--radius-sm)' }}
                     >
                         P
                     </div>
@@ -67,8 +73,12 @@ export default function Header({ activeTab, setActiveTab, sidebarOpen, setSideba
 
             {/* Center — Navigation */}
             <nav
-                className="flex items-center gap-0.5 rounded p-0.5"
-                style={{ background: 'rgba(0,0,0,0.2)', border: '1px solid var(--amoled-border)' }}
+                className="flex items-center gap-0.5 p-0.5"
+                style={{
+                    background: 'rgba(255,255,255,0.04)',
+                    border: '1px solid rgba(255,255,255,0.08)',
+                    borderRadius: 'var(--radius-sm)',
+                }}
             >
                 {tabs.map((tab) => {
                     const isActive = activeTab === tab.id
@@ -76,9 +86,10 @@ export default function Header({ activeTab, setActiveTab, sidebarOpen, setSideba
                         <button
                             key={tab.id}
                             onClick={() => setActiveTab(tab.id)}
-                            className="flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded text-sm font-medium transition-colors"
+                            className="flex items-center gap-1.5 px-3 sm:px-4 py-1.5 text-sm font-medium transition-colors"
                             style={{
-                                background:   isActive ? 'var(--amoled-panel)' : 'transparent',
+                                borderRadius: 'calc(var(--radius-sm) - 2px)',
+                                background:   isActive ? 'rgba(201,165,42,0.12)' : 'transparent',
                                 color:        isActive ? 'var(--amoled-gold)' : 'var(--amoled-muted)',
                                 borderBottom: isActive ? `2px solid var(--amoled-gold)` : '2px solid transparent',
                             }}
@@ -98,8 +109,8 @@ export default function Header({ activeTab, setActiveTab, sidebarOpen, setSideba
                         variant="ghost"
                         size="icon"
                         aria-label={item.label}
-                        className="w-8 h-8 rounded transition-colors"
-                        style={{ color: 'var(--amoled-muted)' }}
+                        className="w-8 h-8 transition-colors"
+                        style={{ color: 'var(--amoled-muted)', borderRadius: 'var(--radius-sm)' }}
                         onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--amoled-text)')}
                         onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--amoled-muted)')}
                         onClick={() => window.open(item.href, '_blank')}
@@ -111,8 +122,8 @@ export default function Header({ activeTab, setActiveTab, sidebarOpen, setSideba
                     variant="ghost"
                     size="icon"
                     aria-label="Contato"
-                    className="w-8 h-8 rounded transition-colors"
-                    style={{ color: 'var(--amoled-muted)' }}
+                    className="w-8 h-8 transition-colors"
+                    style={{ color: 'var(--amoled-muted)', borderRadius: 'var(--radius-sm)' }}
                     onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--amoled-text)')}
                     onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--amoled-muted)')}
                     onClick={() => setActiveTab('contact')}

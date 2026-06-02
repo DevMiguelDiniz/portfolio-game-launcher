@@ -50,9 +50,9 @@ export default function ContactView() {
     }
 
     return (
-        <div className="h-full overflow-y-auto" style={{ background: 'var(--amoled-navy)' }}>
+        <div className="h-full overflow-y-auto" style={{ background: 'var(--amoled-black)' }}>
             {/* Hero Section */}
-            <div className="border-b p-4 lg:p-8" style={{ background: 'var(--amoled-dark)', borderColor: 'var(--amoled-border)' }}>
+            <div className="border-b p-4 lg:p-8" style={{ background: 'var(--amoled-black)', borderColor: 'var(--amoled-border)' }}>
 
                 <div className="max-w-4xl mx-auto text-center relative z-10">
                     <div
@@ -114,7 +114,7 @@ export default function ContactView() {
                                             {contact.icon}
                                         </div>
                                         <div className="flex-1">
-                                            <h3 className="text-white font-semibold text-base lg:text-lg group-hover:text-blue-400 transition-colors duration-300">
+                                            <h3 className="text-white font-semibold text-base lg:text-lg group-hover:text-yellow-400 transition-colors duration-300">
                                                 {contact.title}
                                             </h3>
                                             <p className="text-gray-300 text-sm lg:text-base font-medium">{contact.value}</p>
@@ -140,7 +140,7 @@ export default function ContactView() {
                                         t('contact.consulting')
                                     ].map((item, index) => (
                                         <div key={index} className="flex items-center space-x-3 group">
-                                            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                                            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                                             <span className="group-hover:text-white transition-colors duration-300">{item}</span>
                                         </div>
                                     ))}

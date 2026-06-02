@@ -274,8 +274,7 @@ export default function ProfileView() {
                                     key={index}
                                     className="glass-panel steam-hover p-6"
                                     style={{
-                                        borderLeftWidth: exp.current ? '2px' : undefined,
-                                        borderLeftColor: exp.current ? 'var(--amoled-green-text)' : undefined,
+                                        borderLeft: exp.current ? '2px solid var(--amoled-green-text)' : undefined,
                                         animationDelay: `${index * 150}ms`,
                                     }}
                                 >
